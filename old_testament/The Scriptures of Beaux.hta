@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Scriptures of Beaux</title>
+    <hta:application
+        applicationname="The Scriptures Of Beaux"
+        border="thin"
+        borderstyle="normal"
+        caption="yes"
+        showintaskbar="yes"
+        singleinstance="yes"
+        sysmenu="yes"
+        windowstate="maximize"
+        icon="img/ico/TSOB32x32.ico">
+    <style>
+	    :root {
+    	    /* Define default color scheme as CSS variables */
+    	    --background-color: #0B3D73;
+	        --body-color: #F8F8FF;
+    	    --button-color: #007bff;
+    	    --button-hover-color: #0056b3;
+	        --button-text-color: #F8F8FF;
+    	    --game-div-background-color: #FE2A8B;
+    	    --game-div-border-color: #FFBA3E;
+    	    --game-container-background-color: #000000;
+	        --game-container-border-color: #04F0E8;
+	        --game-container-color: #F8F8FF;
+    	    --game-title-background-color: #4B1E78;
+	        --game-title-border-color: #04F0E8;
+    	    --game-title-color: #FFBA3E;
+    	    --game-option-button-color: #7b00ff;
+    	    --game-option-button-hover-color: #5600b3;
+	        --game-option-button-text-color: #F8F8FF;
+	        --game-option-title-background-color: #4B1E78;
+	        --game-option-title-border-color: #04F0E8;
+    	    --game-option-title-color: #FFBA3E;
+	        --path-title-background-color: #4B1E78;
+	        --path-title-border-color: #04F0E8;
+    	    --path-title-color: #FFBA3E;
+	        --scene-image-border-color: #F8F8FF;
+    	    /* ... other variables as needed */
+	    }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #0B3D73;
+            text-align: center;
+            color: #F8F8FF;
+	    padding: 20px;
+        }
+	    #choicesSection{
+	        margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between; /* This will space the child elements (buttons) evenly */
+            flex-wrap: wrap;
+	    }
+        #gameDiv{
+	        background-color: #FE2A8B;
+            border: 5px solid #FFBA3E;
+            padding: 20px;
+	        width: 80%;
+	    }
+        #gameContainer {
+            background-color: #000000;
+            padding: 20px;
+            border: 5px solid #04F0E8;
+            width: 80%;
+	        color: #F8F8FF;
+        }
+        #gameOptionsSection{
+	        margin-bottom: 20px;
+	    }
+	    #gameTitle{
+            background-color: #4B1E78;
+            border: 5px solid #04F0E8;
+            padding-top: 20px;
+            margin-bottom: 20px;
+            width: 40%;
+            color: #FFBA3E;
+        }
+        #optionTitle{
+            background-color: #4B1E78;
+            border: 5px solid #04F0E8;
+            padding-top: 20px;
+            margin-bottom: 5px;
+            width: 40%;
+            color: #FFBA3E;
+        }
+        #pathTitle{
+            background-color: #4B1E78;
+            border: 5px solid #04F0E8;
+            padding-top: 20px;
+            margin-bottom: 5px;
+            width: 40%;
+            color: #FFBA3E;
+        }
+        #sceneAct {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #sceneImage {
+            text-align: center;
+            margin-bottom: 20px;
+	        border: 5px solid #F8F8FF;
+        }
+        #sceneImage img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        #storyText {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .choiceButton {
+            display: flex;
+            margin: 10px 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #F8F8FF;
+            border: none;
+            width: 30%;
+            cursor: pointer;
+        }
+        .choiceButton:hover {
+            background-color: #0056b3;
+        }
+        .gameOptionsButton {
+            display: flex;
+            margin: 10px 20px;
+            padding: 10px;
+            background-color: #7b00ff;
+            color: #F8F8FF;
+            border: none;
+            width: 30%;
+            cursor: pointer;
+        }
+        .gameOptionsButton:hover {
+            background-color: #5600b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameDiv">
+        <div id="gameTitle">
+            <h1>The Scriptures<br>of Beaux</h1>
+        </div>
+        <div id="gameContainer">
+            <bgsound id="sceneAudio" preload="auto">
+            <div><h2 id="sceneAct"></h2></div>
+            <div id="sceneImage"></div>
+            <div><h2 id="storyText"></h2></div>
+            <div id="choicesSection">
+                <bgsound id="choiceAudio" preload="auto">
+                <div id="pathTitle">
+                    <h2>The Path Ahead</h2>
+                </div>
+		        <div id="choices"></div>
+	        </div>            
+            <div id="gameOptionsSection">
+                <bgsound id="optionAudio" preload="auto">
+                <div id="optionTitle">
+		            <h2>Game Options</h2>
+	            </div>
+                <div id="gameOptions"></div>
+	        </div>
+        </div>
+    </div>
+    <script>
+        var scenes = {
+            'start': {
+                // Scene data for the title screen...
+                'act': 'The Scriptures of Beaux:\nA Story of Echeloning',
+                'text': 'This is the scriptures of Beaux #1 and Beaux #2, an unlikely duo who were about to embark on an unforgetable journey of crypto, development, FUD, and more than they could only begin to imagine.\n\nJoin our unlikely heros on their adventure to change their fates and echelon on their peers!',
+                'image': 'img/Echelon/Echelon.png',
+                'audio': 'audio/Fart.mp3',
+	            'colorScheme': {
+            	    backgroundColor: '#0B3D73',
+            	    buttonColor: '#007bff',
+            	    buttonHoverColor: '#0056b3'
+            	    // ... add more color properties as needed
+        	    },
+                'choices': [
+                    {
+                        'text': 'Start the adventure now!',
+                        'target': 'startJourney',
+                        'audio': 'audio/Fart.mp3'
+                    }
+                ],
+                'gameOptions': []
+            },
+            'startJourney': {
+		        // Scene data for starting the journey...
+                'act': 'Act 1 Part 1:\nThe Need To Cook',
+                'text': 'The scriptures start with Beaux #1 and Beaux #2 hanging out in the tech-filled garage of Beaux #2, surrounded by gadgets, crypto mining rigs, and a board filled with brainstorming notes.\n\n"We need to cook Beaux..." says Beaux #1 out loud as he looks at all of the work and technology that Beaux #2 had laying around his garage.\n\n Beaux #2 has been putting in countless sleepless nights, behind the scenes, while still managing to keep his grades high in college from which Beaux #2 recently graduated with a Bachelors of Science in ACS Chemistry and Physics, minors in Astronomy and Mathematics, and is just looking for his big break!\n\nHowever, Beaux #2 wants Beaux #1 to be along for the journey, because they both come from the same trenches, and it is boring to echelon and escape the matrix alone!',
+                'image': 'img/Scenes/GarageScene.png',
+                'audio': 'audio/Fart.mp3',
+		        'colorScheme': {
+            	    backgroundColor: '#0B3D73',
+            	    buttonColor: '#007bff',
+            	    buttonHoverColor: '#0056b3'
+            	    // ... add more color properties as needed
+        	    },
+                'choices': [
+                    {
+                        'text': 'Start Teaching Beaux #1 Programming',
+                        'target': 'startCoding',
+                        'audio': 'audio/Fart.mp3'
+                    },
+		            {
+                        'text': 'Seek Food From Burger World',
+                        'target': 'seekBurgers',
+                        'audio': 'audio/Fart.mp3'
+                    }
+                ],
+                'gameOptions': [
+                    {
+                        'text': 'Restart The Game',
+                        'target': 'start',
+                        'audio': 'audio/Fart.mp3'
+                    }
+                ]
+            },
+            'startCoding': {
+                // Scene data for starting coding...
+                'act': 'Act 1 Part 2:\nThe Echeloning Begins',
+                'text': 'As we foretold earlier in the scriptures, Beaux #2 had already been putting in countless nights (for what was climbing to be a decade now) towards cryptocurrency development any time he was not working on school (yes, even in high school).\n\nAs Beaux #1 and Beaux #2 had been friends all through their teenage years, and Beaux #2 was now back home from college, Beaux #2 decided to echelon on Beaux #1, upgrade the PC that Beaux #1 had, sit him down in a gaming chair in front of it, and show him the ropes on how to code a basic website so he can get the picture of how it all links together, use GitHub to upload his own projects, get others projects to expand and make edits too, and much more!',
+                'image': 'img/Echelon/Echelon.png',
+                'audio': 'audio/Fart.mp3',
+		        'colorScheme': {
+            	    backgroundColor: '#0B3D73',
+            	    buttonColor: '#007bff',
+            	    buttonHoverColor: '#0056b3'
+            	    // ... add more color properties as needed
+        	    },
+                'choices': [
+		            {
+                        'text': 'Start Teaching Beaux #1 Programming',
+                        'target': 'startCoding',
+                        'audio': 'audio/Fart.mp3'
+                    },
+		            {
+                        'text': 'Seek Food From Burger World',
+                        'target': 'seekBurgers',
+                        'audio': 'audio/Fart.mp3'
+                    }
+		        ],
+                'gameOptions': [
+                    {
+                        'text': 'Restart The Game',
+                        'target': 'start',
+                        'audio': 'audio/Fart.mp3'
+                    }
+                ]
+            },
+	    'seekBurgers': {
+                // Scene data for seeking food from Burger World...
+                'act': 'Act 1 Part 2:\nThe Side Scriptures of Burger World',
+                'text': 'We are currently echeloning on this part of the story!',
+                'image': 'img/Echelon/Echelon.png',
+                'audio': 'audio/Fart.mp3',
+		        'colorScheme': {
+            	    backgroundColor: '#0B3D73',
+            	    buttonColor: '#007bff',
+            	    buttonHoverColor: '#0056b3'
+            	    // ... add more color properties as needed
+        	    },
+                'choices': [
+		            {
+                        'text': 'Start Teaching Beaux #1 Programming',
+                        'target': 'startCoding',
+                        'audio': 'audio/Fart.mp3'
+                    },
+		            {
+                        'text': 'Seek Food From Burger World',
+                        'target': 'seekBurgers',
+                        'audio': 'audio/Fart.mp3'
+                    }
+		        ],
+                'gameOptions': [
+                    {
+                        'text': 'Restart The Game',
+                        'target': 'start',
+                        'audio': 'audio/Fart.mp3'
+                    }
+                ]
+            }
+            // Other scenes...
+        };
+
+        function playBgsound(soundId, soundSrc) {
+            // Remove the existing bgsound element if it exists
+            var existingSound = document.getElementById(soundId);
+            if (existingSound && existingSound.parentNode) {
+                existingSound.parentNode.removeChild(existingSound);
+            }
+
+            // Create a new bgsound element
+            var bgsound = document.createElement('bgsound');
+            bgsound.id = soundId;
+            bgsound.src = soundSrc;
+            bgsound.setAttribute('autostart', 'true');
+            bgsound.setAttribute('loop', '1');
+            bgsound.setAttribute('hidden', 'true');
+            document.body.appendChild(bgsound);
+        }
+
+
+        function nextScene(sceneId) {
+            var scene = scenes[sceneId];
+            var imgHTML = '<img src="' + scene.image + '" alt="Scene image">';
+            document.getElementById('sceneAct').innerText = scene.act;
+            document.getElementById('storyText').innerText = scene.text;
+            document.getElementById('sceneImage').innerHTML = imgHTML;
+
+            // Play scene audio
+            if (scene.audio) {
+                playBgsound('sceneAudio', scene.audio);
+            }
+
+            var choicesContainer = document.getElementById('choices');
+            var choicesSection = document.getElementById('choicesSection');
+
+            choicesContainer.innerHTML = ''; // Clear previous choices
+            
+            if (scene.choices && scene.choices.length > 0) {
+                choicesSection.style.display = ''; // Show the section if there are choice options
+            
+                for (var i = 0; i < scene.choices.length; i++) {
+                    (function() {
+                        var choice = scene.choices[i];
+                        var button = document.createElement('button');
+                        button.innerText = choice.text;
+                        button.className = 'choiceButton'; // Use className instead of classList
+                        button.onclick = function() {
+                            if (choice.audio) {
+                                playBgsound('choiceAudio', choice.audio);
+                            }
+                            nextScene(choice.target);
+                        };
+                        choicesContainer.appendChild(button);
+                    })(); // IIFE for correct closure scope
+                }
+            } else {
+                choicesSection.style.display = 'none'; // Hide the section if there are no choice options
+            }
+
+            var gameOptionsContainer = document.getElementById('gameOptions');
+            var gameOptionsSection = document.getElementById('gameOptionsSection');
+    
+            gameOptionsContainer.innerHTML = ''; // Clear previous options
+    
+            if (scene.gameOptions && scene.gameOptions.length > 0) {
+                gameOptionsSection.style.display = ''; // Show the section if there are game options
+
+                for (var i = 0; i < scene.gameOptions.length; i++) {
+                    (function() {
+                        var option = scene.gameOptions[i];
+                        var button = document.createElement('button');
+                        button.innerText = option.text;
+                        button.className = 'gameOptionsButton';
+                        button.onclick = function() {
+                            if (option.audio) {
+                                playBgsound('optionAudio', option.audio);
+                            }
+                            nextScene(option.target);
+                        };
+                        gameOptionsContainer.appendChild(button);
+                    })(); // IIFE for correct closure scope
+                }
+            } else {
+                gameOptionsSection.style.display = 'none'; // Hide the section if there are no game options
+            }   
+        }
+
+        // Initialize the first scene
+        nextScene('start');
+    </script>
+</body>
+</html>
