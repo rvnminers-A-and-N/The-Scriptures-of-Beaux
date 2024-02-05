@@ -13,7 +13,7 @@ var scenes = {
         },
         'choices': [
             {
-                'text': 'Begin The Journey of Echeloning Now',
+                'text': 'Begin The Journey of Echeloning',
                 'target': 'startJourney',
                 'audio': 'audio/Fart.mp3'
             }
@@ -257,7 +257,30 @@ function nextScene(sceneId) {
             gameOptionsContainer.appendChild(muteButton);
         }
     } else {
-        gameOptionsSection.style.display = 'none'; // Hide the section if there are no game options
+        //gameOptionsSection.style.display = 'none'; // Hide the section if there are no game options
+        var muteToggleSoundSrc = 'audio/Fart.mp3'; // replace with the path to your sound file
+        var muteButton = document.getElementById('muteButton');
+        if (!muteButton) {
+            muteButton = document.createElement('button');
+            muteButton.id = 'muteButton'; // Assign an ID for easy access
+            muteButton.className = 'gameOptionsButton'; // Reuse the same style class
+            muteButton.innerText = isMuted ? 'Click This Button To Unmute Sound' : 'Click This Button To Mute Sound'; // Set the initial text based on isMuted state
+
+            // Attach click event to toggle mute
+            muteButton.onclick = function() {
+                muteToggle();
+                // After toggling, check the new state and update button text accordingly
+                muteButton.innerText = isMuted ? 'Click This Button To Unmute Sound' : 'Click This Button To Mute Sound';
+
+                // If the game is now unmuted, play the sound for mute toggle button click
+                if (!isMuted) {
+                    playSound('muteToggleAudio', muteToggleSoundSrc); // Use 'muteToggleAudio' as the ID for the mute toggle audio
+                }
+            };
+
+            // Append the mute button to the gameOptionsContainer still so that on the beginning screen the player can mute
+            gameOptionsContainer.appendChild(muteButton);
+        }
     }
 }
 // Initialize the first scene
