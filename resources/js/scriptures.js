@@ -34,12 +34,12 @@ var scenes = {
         },
         'choices': [
             {
-                'text': 'Start Teaching Beaux #1 Programming',
+                'text': 'Teach Beaux #1 Programming',
                 'target': 'startCoding',
                 'audio': 'audio/Fart.mp3'
             },
             {
-                'text': 'Seek Food From The Local Burger World',
+                'text': 'Seek Food At Local Burger World',
                 'target': 'seekBurgers',
                 'audio': 'audio/Fart.mp3'
             }
@@ -76,7 +76,7 @@ var scenes = {
                 'audio': 'audio/Fart.mp3'
             },
             {
-                'text': 'Seek Food From Burger World',
+                'text': 'Seek Food At Local Burger World',
                 'target': 'seekBurgers',
                 'audio': 'audio/Fart.mp3'
             }
@@ -113,7 +113,7 @@ var scenes = {
                 'audio': 'audio/Fart.mp3'
             },
             {
-                'text': 'Seek Food From Burger World',
+                'text': 'Seek Food At Local Burger World',
                 'target': 'seekBurgers',
                 'audio': 'audio/Fart.mp3'
             }
@@ -174,7 +174,7 @@ function nextScene(sceneId) {
     
     // Scroll to the top of the page
     window.scrollTo(0, 0);
-    
+
     // Stop scene audio
     stopSound('sceneAudio');
     
