@@ -13,7 +13,7 @@ var scenes = {
         },
         'choices': [
             {
-                'text': 'Start the adventure now!',
+                'text': 'Begin The Journey of Echeloning Now',
                 'target': 'startJourney',
                 'audio': 'audio/Fart.mp3'
             }
