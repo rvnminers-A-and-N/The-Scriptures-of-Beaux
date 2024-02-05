@@ -93,6 +93,7 @@ body {
     margin-bottom: 20px;
     width: 40%;
     color: #FFBA3E;
+    display: table;
 }
 #optionTitle{
     background-color: #4B1E78;
@@ -102,6 +103,7 @@ body {
     margin-bottom: 5px;
     width: 30%;
     color: #FFBA3E;
+    display: table;
 }
 #pathTitle{
     background-color: #4B1E78;
@@ -111,6 +113,7 @@ body {
     margin-bottom: 5px;
     width: 30%;
     color: #FFBA3E;
+    display: table;
 }
 #sceneAct {
     text-align: center;
