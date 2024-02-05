@@ -3,4 +3,4 @@ This is the story of Beaux 1 and Beaux 2, and their journey through the world of
 
 ## What It Means To Echelon
 
-"Insert terminology for Verb For, of Echelon"
+"Insert terminology for Verb form, of Echelon"
