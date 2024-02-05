@@ -169,8 +169,11 @@ function muteToggle() {
     });
 };
 
-function nextScene(sceneId) {
+function nextScene(sceneId) {  
     var scene = scenes[sceneId];
+    
+    // Scroll to the top of the page
+    window.scrollTo(0, 0);
     
     // Stop scene audio
     stopSound('sceneAudio');
