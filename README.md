@@ -1,6 +1,6 @@
-![Echelon](https://raw.githubusercontent.com/rvnminers-A-and-N/The-Scriptures-of-Beaux/main/resources/img/Echelon/Echelon.png)
-
 [![License](https://img.shields.io/badge/license-GPL--3.0-blue)](https://opensource.org/licenses/GPL-3.0)
+
+![Echelon](https://raw.githubusercontent.com/rvnminers-A-and-N/The-Scriptures-of-Beaux/main/resources/img/Echelon/Echelon.png)
 
 # The Scriptures of Beaux
 This is the story of Beaux 1 and Beaux 2, and their journey through the world of crypto, trying to navigate the scriptures, in a conquest to echelon and change their lives for the better.
