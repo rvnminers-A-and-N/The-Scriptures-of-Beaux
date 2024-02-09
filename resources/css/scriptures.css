@@ -3,7 +3,9 @@
     --background-color: #0B3D73;
     --body-color: #F8F8FF;
     --button-color: #007bff;
+    --button-border-color: #04F0E8;
     --button-hover-color: #0056b3;
+    --button-hover-border-color: #FFBA3E;
     --button-text-color: #F8F8FF;
     --game-div-background-color: #FE2A8B;
     --game-div-border-color: #FFBA3E;
@@ -14,7 +16,9 @@
     --game-title-border-color: #04F0E8;
     --game-title-color: #FFBA3E;
     --game-option-button-color: #7b00ff;
+    --game-option-button-border-color: #04F0E8;
     --game-option-button-hover-color: #5600b3;
+    --game-option-button-hover-border-color: #FFBA3E;
     --game-option-button-text-color: #F8F8FF;
     --game-option-title-background-color: #4B1E78;
     --game-option-title-border-color: #04F0E8;
@@ -29,9 +33,9 @@ body {
     display: flex;
     justify-content: center;
     font-family: 'Courier New', Courier, monospace;
-    background-color: #0B3D73;
+    background-color: var(--background-color);
     text-align: center;
-    color: #F8F8FF;
+    color: var(--body-color);
     padding: 20px;
 }
 #choices{
@@ -55,19 +59,19 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #FE2A8B;
-    border: 5px solid #FFBA3E;
+    background-color: var(--game-div-background-color);
+    border: 5px solid var(--game-div-border-color);
     border-radius: 5px;
     padding: 20px;
     width: 80%;
 }
 #gameContainer {
-    background-color: #000000;
+    background-color: var(--game-container-background-color);
     padding: 20px;
-    border: 5px solid #04F0E8;
+    border: 5px solid var(--game-container-border-color);
     border-radius: 5px;
     width: 80%;
-    color: #F8F8FF;
+    color: var(--game-container-color);
 }
 #gameOptions{
     display: flex;
@@ -86,33 +90,33 @@ body {
     width: 100%;
 }
 #gameTitle{
-    background-color: #4B1E78;
-    border: 5px solid #04F0E8;
+    background-color: var(--game-title-background-color);
+    border: 5px solid var(--game-title-border-color);
     border-radius: 5px;
     padding-top: 5px;
     margin-bottom: 20px;
     width: 40%;
-    color: #FFBA3E;
+    color: var(--game-title-color);
     display: table;
 }
 #optionTitle{
-    background-color: #4B1E78;
-    border: 5px solid #04F0E8;
+    background-color: var(--game-option-title-background-color);
+    border: 5px solid var(--game-option-title-border-color);
     border-radius: 5px;
     padding-top: 5px;
     margin-bottom: 5px;
     width: 30%;
-    color: #FFBA3E;
+    color: var(--game-option-title-color);
     display: table;
 }
 #pathTitle{
-    background-color: #4B1E78;
-    border: 5px solid #04F0E8;
+    background-color: var(--path-title-background-color);
+    border: 5px solid var(--path-title-border-color);
     border-radius: 5px;
     padding-top: 5px;
     margin-bottom: 5px;
     width: 30%;
-    color: #FFBA3E;
+    color: var(--path-title-color);
     display: table;
 }
 #sceneAct {
@@ -126,7 +130,7 @@ body {
 #sceneImage img {
     max-width: 100%;
     height: auto;
-    border: 5px solid #F8F8FF;
+    border: 5px solid var(--scene-image-border-color);
     border-radius: 5px;
 }
 #selectionSection{
@@ -147,16 +151,16 @@ body {
     align-items: center;
     margin: 10px 20px;
     padding: 10px;
-    background-color: #007bff;
-    color: #F8F8FF;
-    border: 5px solid #04F0E8;
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    border: 5px solid var(--button-border-color);
     border-radius: 5px;
     width: 40%;
     cursor: pointer;
 }
 .choiceButton:hover {
-    background-color: #0056b3;
-    border: 5px solid #FFBA3E;
+    background-color: var(--button-hover-color);
+    border: 5px solid var(--button-hover-border-color);
     border-radius: 5px;
 }
 .gameOptionsButton {
@@ -165,15 +169,15 @@ body {
     align-items: center;
     margin: 10px 20px;
     padding: 10px;
-    background-color: #7b00ff;
-    color: #F8F8FF;
-    border: 5px solid #04F0E8;
+    background-color: var(--game-option-button-color);
+    color: var(--game-option-button-text-color);
+    border: 5px solid var(--game-option-button-border-color);
     border-radius: 5px;
     width: 40%;
     cursor: pointer;
 }
 .gameOptionsButton:hover {
-    background-color: #5600b3;
-    border: 5px solid #FFBA3E;
+    background-color: var(--game-option-button-hover-color);
+    border: 5px solid var(--game-option-button-hover-border-color);
     border-radius: 5px;
 }

@@ -7,8 +7,32 @@ var scenes = {
         'audio': 'audio/Fart.mp3',
         'colorScheme': {
             backgroundColor: '#0B3D73',
+            bodyColor: '#F8F8FF',
             buttonColor: '#007bff',
-            buttonHoverColor: '#0056b3'
+            buttonBorderColor: '#04F0E8',
+            buttonHoverColor: '#0056b3',
+            buttonHoverBorderColor: '#FFBA3E',
+            buttonTextColor: '#F8F8FF',
+            gameDivBackgroundColor: '#FE2A8B',
+            gameDivBorderColor: '#FFBA3E',
+            gameContainerBackgroundColor: '#000000',
+            gameContainerBorderColor: '#04F0E8',
+            gameContainerColor: '#F8F8FF',
+            gameTitleBackgroundColor: '#4B1E78',
+            gameTitleBorderColor: '#04F0E8',
+            gameTitleColor: '#FFBA3E',
+            gameOptionButtonColor: '#7b00ff',
+            gameOptionButtonBorderColor: '#04F0E8',
+            gameOptionButtonHoverColor: '#5600b3',
+            gameOptionButtonHoverBorderColor: '#FFBA3E',
+            gameOptionButtonTextColor: '#F8F8FF',
+            gameOptionTitleBackgroundColor: '#4B1E78',
+            gameOptionTitleBorderColor: '#04F0E8',
+            gameOptionTitleColor: '#FFBA3E',
+            pathTitleBackgroundColor: '#4B1E78',
+            pathTitleBorderColor: '#04F0E8',
+            pathTitleColor: '#FFBA3E',
+            sceneImageBorderColor: '#F8F8FF'
             // ... add more color properties as needed
         },
         'choices': [
@@ -28,8 +52,32 @@ var scenes = {
         'audio': 'audio/Fart.mp3',
         'colorScheme': {
             backgroundColor: '#0B3D73',
+            bodyColor: '#F8F8FF',
             buttonColor: '#007bff',
-            buttonHoverColor: '#0056b3'
+            buttonBorderColor: '#04F0E8',
+            buttonHoverColor: '#0056b3',
+            buttonHoverBorderColor: '#FFBA3E',
+            buttonTextColor: '#F8F8FF',
+            gameDivBackgroundColor: '#FE2A8B',
+            gameDivBorderColor: '#FFBA3E',
+            gameContainerBackgroundColor: '#000000',
+            gameContainerBorderColor: '#04F0E8',
+            gameContainerColor: '#F8F8FF',
+            gameTitleBackgroundColor: '#4B1E78',
+            gameTitleBorderColor: '#04F0E8',
+            gameTitleColor: '#FFBA3E',
+            gameOptionButtonColor: '#7b00ff',
+            gameOptionButtonBorderColor: '#04F0E8',
+            gameOptionButtonHoverColor: '#5600b3',
+            gameOptionButtonHoverBorderColor: '#FFBA3E',
+            gameOptionButtonTextColor: '#F8F8FF',
+            gameOptionTitleBackgroundColor: '#4B1E78',
+            gameOptionTitleBorderColor: '#04F0E8',
+            gameOptionTitleColor: '#FFBA3E',
+            pathTitleBackgroundColor: '#4B1E78',
+            pathTitleBorderColor: '#04F0E8',
+            pathTitleColor: '#FFBA3E',
+            sceneImageBorderColor: '#F8F8FF'
             // ... add more color properties as needed
         },
         'choices': [
@@ -65,8 +113,32 @@ var scenes = {
         'audio': 'audio/Fart.mp3',
         'colorScheme': {
             backgroundColor: '#0B3D73',
+            bodyColor: '#F8F8FF',
             buttonColor: '#007bff',
-            buttonHoverColor: '#0056b3'
+            buttonBorderColor: '#04F0E8',
+            buttonHoverColor: '#0056b3',
+            buttonHoverBorderColor: '#FFBA3E',
+            buttonTextColor: '#F8F8FF',
+            gameDivBackgroundColor: '#FE2A8B',
+            gameDivBorderColor: '#FFBA3E',
+            gameContainerBackgroundColor: '#000000',
+            gameContainerBorderColor: '#04F0E8',
+            gameContainerColor: '#F8F8FF',
+            gameTitleBackgroundColor: '#4B1E78',
+            gameTitleBorderColor: '#04F0E8',
+            gameTitleColor: '#FFBA3E',
+            gameOptionButtonColor: '#7b00ff',
+            gameOptionButtonBorderColor: '#04F0E8',
+            gameOptionButtonHoverColor: '#5600b3',
+            gameOptionButtonHoverBorderColor: '#FFBA3E',
+            gameOptionButtonTextColor: '#F8F8FF',
+            gameOptionTitleBackgroundColor: '#4B1E78',
+            gameOptionTitleBorderColor: '#04F0E8',
+            gameOptionTitleColor: '#FFBA3E',
+            pathTitleBackgroundColor: '#4B1E78',
+            pathTitleBorderColor: '#04F0E8',
+            pathTitleColor: '#FFBA3E',
+            sceneImageBorderColor: '#F8F8FF'
             // ... add more color properties as needed
         },
         'choices': [
@@ -101,9 +173,33 @@ var scenes = {
         'image': 'img/Echelon/Echelon.png',
         'audio': 'audio/Fart.mp3',
         'colorScheme': {
-            backgroundColor: '#0B3D73',
-            buttonColor: '#007bff',
-            buttonHoverColor: '#0056b3'
+            backgroundColor: '#FFC72C', // McDonald's Yellow for background
+            bodyColor: '#FFFFFF', // White for body text
+            buttonColor: '#DA291C', // McDonald's Red for buttons
+            buttonBorderColor: '#FBB03B', // A lighter shade of yellow for button borders
+            buttonHoverColor: '#FBB03B', // Lighter yellow for button hover
+            buttonHoverBorderColor: '#DA291C', // Red for button hover border
+            buttonTextColor: '#FFFFFF', // White for button text
+            gameDivBackgroundColor: '#DA291C', // McDonald's Red for game div background
+            gameDivBorderColor: '#FFC72C', // McDonald's Yellow for game div border
+            gameContainerBackgroundColor: '#FFFFFF', // White for game container background
+            gameContainerBorderColor: '#DA291C', // McDonald's Red for game container border
+            gameContainerColor: '#000000', // Black for game container text
+            gameTitleBackgroundColor: '#FFC72C', // McDonald's Yellow for game title background
+            gameTitleBorderColor: '#DA291C', // McDonald's Red for game title border
+            gameTitleColor: '#DA291C', // McDonald's Red for game title text
+            gameOptionButtonColor: '#FFC72C', // McDonald's Yellow for game option buttons
+            gameOptionButtonBorderColor: '#DA291C', // McDonald's Red for game option button borders
+            gameOptionButtonHoverColor: '#FBB03B', // Lighter yellow for game option button hover
+            gameOptionButtonHoverBorderColor: '#DA291C', // Red for game option button hover border
+            gameOptionButtonTextColor: '#DA291C', // McDonald's Red for game option button text
+            gameOptionTitleBackgroundColor: '#DA291C', // McDonald's Red for game option title background
+            gameOptionTitleBorderColor: '#FFC72C', // McDonald's Yellow for game option title border
+            gameOptionTitleColor: '#FFC72C', // McDonald's Yellow for game option title text
+            pathTitleBackgroundColor: '#DA291C', // McDonald's Red for path title background
+            pathTitleBorderColor: '#FFC72C', // McDonald's Yellow for path title border
+            pathTitleColor: '#FFC72C', // McDonald's Yellow for path title text
+            sceneImageBorderColor: '#DA291C' // McDonald's Red for scene image border
             // ... add more color properties as needed
         },
         'choices': [
@@ -135,6 +231,15 @@ var scenes = {
 };
 
 var isMuted = false;
+
+// Parse Through Scene Color Scheme CSS Variables
+function applySceneColorScheme(colorScheme) {
+    Object.keys(colorScheme).forEach(key => {
+        let cssVarName = `--${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`; // Converts camelCase to kebab-case
+        let cssVarValue = colorScheme[key];
+        document.documentElement.style.setProperty(cssVarName, cssVarValue);
+    });
+}
 
 // Play a specific sound
 function playSound(soundId, soundSrc) {
@@ -172,6 +277,11 @@ function muteToggle() {
 function nextScene(sceneId) {  
     var scene = scenes[sceneId];
     
+    // Apply color scheme from the scene or default
+    if(scene.colorScheme) {
+        applySceneColorScheme(scene.colorScheme);
+    }
+
     // Scroll to the top of the page
     window.scrollTo(0, 0);
 
