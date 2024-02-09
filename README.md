@@ -1,4 +1,4 @@
-<div style="text-align: center">
+<div align="center">
   <h1>The Scriptures of Beaux: A Story of Echeloning</h1>
   <img src="https://raw.githubusercontent.com/rvnminers-A-and-N/The-Scriptures-of-Beaux/main/resources/img/Echelon/Echelon.png" alt="Echelon"></img>
   <p>
