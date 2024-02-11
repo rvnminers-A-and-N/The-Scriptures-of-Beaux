@@ -204,6 +204,128 @@ var scenes = {
         },
         'choices': [
             {
+                'text': 'Approach The Legendary GoosDraba',
+                'target': 'encounterGoosDraba',
+                'audio': 'audio/Fart.mp3'
+            },
+            {
+                'text': 'Avoid The Legendary GoosDraba And Go Inside',
+                'target': 'insideBurgerWorld',
+                'audio': 'audio/Fart.mp3'
+            }
+        ],
+        'gameOptions': [
+            {
+                'text': 'Restart The Game',
+                'target': 'start',
+                'audio': 'audio/Fart.mp3'
+            },
+            {
+                'text': 'Filler Button',
+                'target': 'start',
+                'audio': 'audio/Fart.mp3'
+            }
+        ]
+    },
+    'encounterGoosDraba': {
+        // Scene data for seeking food from Burger World...
+        'act': 'Act 1 Part 3:\nRandom Encounter With The Legendary GoosDraba',
+        'text': 'We are currently echeloning on this part of the story!',
+        'image': 'img/Echelon/Echelon.png',
+        'audio': 'audio/Fart.mp3',
+        'colorScheme': {
+            backgroundColor: '#FFC72C', // McDonald's Yellow for background
+            bodyColor: '#FFFFFF', // White for body text
+            buttonColor: '#DA291C', // McDonald's Red for buttons
+            buttonBorderColor: '#FBB03B', // A lighter shade of yellow for button borders
+            buttonHoverColor: '#FBB03B', // Lighter yellow for button hover
+            buttonHoverBorderColor: '#DA291C', // Red for button hover border
+            buttonTextColor: '#FFFFFF', // White for button text
+            gameDivBackgroundColor: '#DA291C', // McDonald's Red for game div background
+            gameDivBorderColor: '#FFC72C', // McDonald's Yellow for game div border
+            gameContainerBackgroundColor: '#FFFFFF', // White for game container background
+            gameContainerBorderColor: '#DA291C', // McDonald's Red for game container border
+            gameContainerColor: '#000000', // Black for game container text
+            gameTitleBackgroundColor: '#FFC72C', // McDonald's Yellow for game title background
+            gameTitleBorderColor: '#DA291C', // McDonald's Red for game title border
+            gameTitleColor: '#DA291C', // McDonald's Red for game title text
+            gameOptionButtonColor: '#FFC72C', // McDonald's Yellow for game option buttons
+            gameOptionButtonBorderColor: '#DA291C', // McDonald's Red for game option button borders
+            gameOptionButtonHoverColor: '#FBB03B', // Lighter yellow for game option button hover
+            gameOptionButtonHoverBorderColor: '#DA291C', // Red for game option button hover border
+            gameOptionButtonTextColor: '#DA291C', // McDonald's Red for game option button text
+            gameOptionTitleBackgroundColor: '#DA291C', // McDonald's Red for game option title background
+            gameOptionTitleBorderColor: '#FFC72C', // McDonald's Yellow for game option title border
+            gameOptionTitleColor: '#FFC72C', // McDonald's Yellow for game option title text
+            pathTitleBackgroundColor: '#DA291C', // McDonald's Red for path title background
+            pathTitleBorderColor: '#FFC72C', // McDonald's Yellow for path title border
+            pathTitleColor: '#FFC72C', // McDonald's Yellow for path title text
+            sceneImageBorderColor: '#DA291C' // McDonald's Red for scene image border
+            // ... add more color properties as needed
+        },
+        'choices': [
+            {
+                'text': 'Start Teaching Beaux #1 Programming',
+                'target': 'startCoding',
+                'audio': 'audio/Fart.mp3'
+            },
+            {
+                'text': 'Seek Food At Local Burger World',
+                'target': 'seekBurgers',
+                'audio': 'audio/Fart.mp3'
+            }
+        ],
+        'gameOptions': [
+            {
+                'text': 'Restart The Game',
+                'target': 'start',
+                'audio': 'audio/Fart.mp3'
+            },
+            {
+                'text': 'Filler Button',
+                'target': 'start',
+                'audio': 'audio/Fart.mp3'
+            }
+        ]
+    },
+    'insideBurgerWorld': {
+        // Scene data for seeking food from Burger World...
+        'act': 'Act 1 Part 3:\nThe Scriptures Continue Inside The Local Burger World',
+        'text': 'We are currently echeloning on this part of the story!',
+        'image': 'img/Echelon/Echelon.png',
+        'audio': 'audio/Fart.mp3',
+        'colorScheme': {
+            backgroundColor: '#FFC72C', // McDonald's Yellow for background
+            bodyColor: '#FFFFFF', // White for body text
+            buttonColor: '#DA291C', // McDonald's Red for buttons
+            buttonBorderColor: '#FBB03B', // A lighter shade of yellow for button borders
+            buttonHoverColor: '#FBB03B', // Lighter yellow for button hover
+            buttonHoverBorderColor: '#DA291C', // Red for button hover border
+            buttonTextColor: '#FFFFFF', // White for button text
+            gameDivBackgroundColor: '#DA291C', // McDonald's Red for game div background
+            gameDivBorderColor: '#FFC72C', // McDonald's Yellow for game div border
+            gameContainerBackgroundColor: '#FFFFFF', // White for game container background
+            gameContainerBorderColor: '#DA291C', // McDonald's Red for game container border
+            gameContainerColor: '#000000', // Black for game container text
+            gameTitleBackgroundColor: '#FFC72C', // McDonald's Yellow for game title background
+            gameTitleBorderColor: '#DA291C', // McDonald's Red for game title border
+            gameTitleColor: '#DA291C', // McDonald's Red for game title text
+            gameOptionButtonColor: '#FFC72C', // McDonald's Yellow for game option buttons
+            gameOptionButtonBorderColor: '#DA291C', // McDonald's Red for game option button borders
+            gameOptionButtonHoverColor: '#FBB03B', // Lighter yellow for game option button hover
+            gameOptionButtonHoverBorderColor: '#DA291C', // Red for game option button hover border
+            gameOptionButtonTextColor: '#DA291C', // McDonald's Red for game option button text
+            gameOptionTitleBackgroundColor: '#DA291C', // McDonald's Red for game option title background
+            gameOptionTitleBorderColor: '#FFC72C', // McDonald's Yellow for game option title border
+            gameOptionTitleColor: '#FFC72C', // McDonald's Yellow for game option title text
+            pathTitleBackgroundColor: '#DA291C', // McDonald's Red for path title background
+            pathTitleBorderColor: '#FFC72C', // McDonald's Yellow for path title border
+            pathTitleColor: '#FFC72C', // McDonald's Yellow for path title text
+            sceneImageBorderColor: '#DA291C' // McDonald's Red for scene image border
+            // ... add more color properties as needed
+        },
+        'choices': [
+            {
                 'text': 'Start Teaching Beaux #1 Programming',
                 'target': 'startCoding',
                 'audio': 'audio/Fart.mp3'
