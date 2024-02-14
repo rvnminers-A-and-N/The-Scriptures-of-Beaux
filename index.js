@@ -46,6 +46,7 @@ function createWindow () {
     splash.close();
     win.center();
     win.maximize();
+    win.setMenuBarVisibility(false);
     win.loadFile('resources/The Scriptures of Beaux.html');
     win.show();
   }, 5000);
