@@ -2,15 +2,17 @@ const { app, BrowserWindow } = require('electron');
 
 function createWindow () {
   var splash = new BrowserWindow({ 
-    width: 500,
-    height: 300,
+    width: 800,
+    height: 600,
     transparent: true,
     frame: false,
-    alwaysOnTop: true
+    alwaysOnTop: true,
+    fullscreen: true
   });
   
-  splash.loadFile('resources/splash.html');
   splash.center();
+  splash.maximize();
+  splash.loadFile('resources/splash.html');
 
   // Create the browser window.
   var win = new BrowserWindow({
