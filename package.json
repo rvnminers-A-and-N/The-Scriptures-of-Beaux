@@ -5,7 +5,30 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
+    "build": "electron-builder",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "build": {
+    "appId": "com.crypticwizardry.scripturesofbeaux",
+    "productName": "The Scriptures of Beaux",
+    "win": {
+      "target": "nsis",
+      "icon": "build/echelon_multisize.ico",
+      "publisherName": "Crypticwizardry"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "build/echelon_multisize.ico",
+      "uninstallerIcon": "build/echelon_multisize.ico",
+      "installerHeaderIcon": "build/echelon_multisize.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "The Scriptures of Beaux",
+      "license": "build/license.md"
+    }
   },
   "repository": {
     "type": "git",
@@ -25,6 +48,7 @@
   },
   "homepage": "https://github.com/rvnminers-A-and-N/The-Scriptures-of-Beaux#readme",
   "devDependencies": {
-    "electron": "^28.2.1"
+    "electron": "^28.2.1",
+    "electron-builder": "^24.9.1"
   }
 }
