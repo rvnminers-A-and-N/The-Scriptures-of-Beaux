@@ -4,7 +4,7 @@ function createWindow () {
   var splash = new BrowserWindow({ 
     width: 800,
     height: 600,
-    transparent: true,
+    // transparent: true,
     frame: false,
     alwaysOnTop: true,
     fullscreen: true
@@ -13,7 +13,7 @@ function createWindow () {
   // splash.center();
   // splash.maximize();
   splash.loadFile('resources/splash.html');
-
+  
   // Create the browser window.
   var win = new BrowserWindow({
     width: 800,
