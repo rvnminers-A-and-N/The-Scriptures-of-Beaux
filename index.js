@@ -10,8 +10,8 @@ function createWindow () {
     fullscreen: true
   });
   
-  splash.center();
-  splash.maximize();
+  // splash.center();
+  // splash.maximize();
   splash.loadFile('resources/splash.html');
 
   // Create the browser window.
