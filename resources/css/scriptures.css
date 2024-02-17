@@ -126,6 +126,8 @@ body {
 #sceneImage {
     text-align: center;
     margin-bottom: 20px;
+    width: 90%;
+    margin: 0 auto;
 }
 #sceneImage img {
     max-width: 100%;
