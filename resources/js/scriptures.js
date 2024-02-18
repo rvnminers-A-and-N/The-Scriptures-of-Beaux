@@ -396,6 +396,17 @@ function muteToggle() {
     });
 };
 
+function playBackgroundAudio() {
+    var backgroundAudio = document.getElementById('backgroundAudio');
+    backgroundAudio.src = 'audio/DF7HS.mp3'; // Update with the correct path
+    if (!isMuted) {
+        backgroundAudio.play().catch(e => console.error("Error playing background audio:", e));
+    }
+}
+
+// Call this function when the game loads
+playBackgroundAudio();
+
 function nextScene(sceneId) {  
     var scene = scenes[sceneId];
     

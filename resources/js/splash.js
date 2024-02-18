@@ -1,11 +1,8 @@
 function playSplashSound() {
-    const audioElement = document.getElementById('splashAudio');
-    if (audioElement) {
-      audioElement.play()
-    }
+    const splashAudioElement = document.getElementById('splashAudio');
+    splashAudioElement.src = 'audio/Splash.mp3';
+    splashAudioElement.play();
 }
 
-// Call the function when the document content is fully loaded
-document.addEventListener('DOMContentLoaded', (event) => {
-    playSplashSound();
-});
+// Call the function
+playSplashSound();
