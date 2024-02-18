@@ -4,7 +4,7 @@ var scenes = {
         'act': 'The Scriptures of Beaux:\nA Story of Echeloning',
         'text': 'This is the scriptures of Beaux #1 and Beaux #2, an unlikely duo who were about to embark on an unforgetable journey of crypto, development, FUD, and more than they could only begin to imagine.\n\nJoin our unlikely heros on their adventure to change their fates and echelon on their peers!',
         'image': 'img/Echelon/Echelon.png',
-        'audio': 'audio/Fart.mp3',
+        'audio': 'audio/Button.mp3',
         'colorScheme': {
             backgroundColor: '#0B3D73',
             bodyColor: '#F8F8FF',
@@ -39,7 +39,7 @@ var scenes = {
             {
                 'text': 'Begin The Journey of Echeloning',
                 'target': 'startJourney',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             }
         ],
         'gameOptions': []
@@ -49,7 +49,7 @@ var scenes = {
         'act': 'Act 1 Part 1:\nThe Need To Cook',
         'text': 'The scriptures start with Beaux #1 and Beaux #2 hanging out in the tech-filled garage of Beaux #2, surrounded by gadgets, crypto mining rigs, and a board filled with brainstorming notes.\n\n"We need to cook Beaux..." says Beaux #1 out loud as he looks at all of the work and technology that Beaux #2 had laying around his garage.\n\n Beaux #2 has been putting in countless sleepless nights, behind the scenes, while still managing to keep his grades high in college from which Beaux #2 recently graduated with a Bachelors of Science in ACS Chemistry and Physics, minors in Astronomy and Mathematics, and is just looking for his big break!\n\nHowever, Beaux #2 wants Beaux #1 to be along for the journey, because they both come from the same trenches, and it is boring to echelon and escape the matrix alone!',
         'image': 'img/Scenes/GarageScene.png',
-        'audio': 'audio/Fart.mp3',
+        'audio': 'audio/Button.mp3',
         'colorScheme': {
             backgroundColor: '#0B3D73',
             bodyColor: '#F8F8FF',
@@ -84,24 +84,24 @@ var scenes = {
             {
                 'text': 'Teach Beaux #1 Programming',
                 'target': 'startCoding',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             },
             {
                 'text': 'Seek Food At Local Burger World',
                 'target': 'seekBurgers',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             }
         ],
         'gameOptions': [
             {
                 'text': 'Restart The Current Playthrough',
                 'target': 'start',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             },
             {
                 'text': 'Filler Button With Some Extra Text',
                 'target': 'start',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             }
         ]
     },
@@ -110,7 +110,7 @@ var scenes = {
         'act': 'Act 1 Part 2:\nThe Echeloning Begins',
         'text': 'As we foretold earlier in the scriptures, Beaux #2 had already been putting in countless nights (for what was climbing to be a decade now) towards cryptocurrency development any time he was not working on school (yes, even in high school).\n\nAs Beaux #1 and Beaux #2 had been friends all through their teenage years, and Beaux #2 was now back home from college, Beaux #2 decided to echelon on Beaux #1, upgrade the PC that Beaux #1 had, sit him down in a gaming chair in front of it, and show him the ropes on how to code a basic website so he can get the picture of how it all links together, use GitHub to upload his own projects, get others projects to expand and make edits too, and much more!',
         'image': 'img/Echelon/Echelon.png',
-        'audio': 'audio/Fart.mp3',
+        'audio': 'audio/Button.mp3',
         'colorScheme': {
             backgroundColor: '#0B3D73',
             bodyColor: '#F8F8FF',
@@ -145,24 +145,24 @@ var scenes = {
             {
                 'text': 'Start Teaching Beaux #1 Programming',
                 'target': 'startCoding',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             },
             {
                 'text': 'Seek Food At Local Burger World',
                 'target': 'seekBurgers',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             }
         ],
         'gameOptions': [
             {
                 'text': 'Restart The Game',
                 'target': 'start',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             },
             {
                 'text': 'Filler Button',
                 'target': 'start',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             }
         ]
     },
@@ -171,7 +171,7 @@ var scenes = {
         'act': 'Act 1 Part 2:\nThe Side Scriptures of Burger World',
         'text': 'We are currently echeloning on this part of the story!',
         'image': 'img/Echelon/Echelon.png',
-        'audio': 'audio/Fart.mp3',
+        'audio': 'audio/Button.mp3',
         'colorScheme': {
             backgroundColor: '#FFC72C', // McDonald's Yellow for background
             bodyColor: '#FFFFFF', // White for body text
@@ -206,24 +206,24 @@ var scenes = {
             {
                 'text': 'Approach The Legendary GoosDraba',
                 'target': 'encounterGoosDraba',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             },
             {
                 'text': 'Move Along And Go Inside',
                 'target': 'insideBurgerWorld',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             }
         ],
         'gameOptions': [
             {
                 'text': 'Restart The Game',
                 'target': 'start',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             },
             {
                 'text': 'Filler Button',
                 'target': 'start',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             }
         ]
     },
@@ -232,7 +232,7 @@ var scenes = {
         'act': 'Act 1 Part 3:\nRandom Encounter With The Legendary GoosDraba',
         'text': 'We are currently echeloning on this part of the story!',
         'image': 'img/Echelon/Echelon.png',
-        'audio': 'audio/Fart.mp3',
+        'audio': 'audio/Button.mp3',
         'colorScheme': {
             backgroundColor: '#FFC72C', // McDonald's Yellow for background
             bodyColor: '#FFFFFF', // White for body text
@@ -267,24 +267,24 @@ var scenes = {
             {
                 'text': 'Start Teaching Beaux #1 Programming',
                 'target': 'startCoding',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             },
             {
                 'text': 'Seek Food At Local Burger World',
                 'target': 'seekBurgers',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             }
         ],
         'gameOptions': [
             {
                 'text': 'Restart The Game',
                 'target': 'start',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             },
             {
                 'text': 'Filler Button',
                 'target': 'start',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             }
         ]
     },
@@ -293,7 +293,7 @@ var scenes = {
         'act': 'Act 1 Part 3:\nThe Scriptures Continue Inside The Local Burger World',
         'text': 'We are currently echeloning on this part of the story!',
         'image': 'img/Echelon/Echelon.png',
-        'audio': 'audio/Fart.mp3',
+        'audio': 'audio/Button.mp3',
         'colorScheme': {
             backgroundColor: '#FFC72C', // McDonald's Yellow for background
             bodyColor: '#FFFFFF', // White for body text
@@ -328,24 +328,24 @@ var scenes = {
             {
                 'text': 'Start Teaching Beaux #1 Programming',
                 'target': 'startCoding',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             },
             {
                 'text': 'Seek Food At Local Burger World',
                 'target': 'seekBurgers',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             }
         ],
         'gameOptions': [
             {
                 'text': 'Restart The Game',
                 'target': 'start',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             },
             {
                 'text': 'Filler Button',
                 'target': 'start',
-                'audio': 'audio/Fart.mp3'
+                'audio': 'audio/Button.mp3'
             }
         ]
     }
@@ -465,7 +465,7 @@ function nextScene(sceneId) {
             gameOptionsContainer.appendChild(button);
         });
 
-        var muteToggleSoundSrc = 'audio/Fart.mp3'; // replace with the path to your sound file
+        var muteToggleSoundSrc = 'audio/Button.mp3'; // replace with the path to your sound file
         var muteButton = document.getElementById('muteButton');
         if (!muteButton) {
             muteButton = document.createElement('button');
@@ -490,7 +490,7 @@ function nextScene(sceneId) {
         }
     } else {
         //gameOptionsSection.style.display = 'none'; // Hide the section if there are no game options
-        var muteToggleSoundSrc = 'audio/Fart.mp3'; // replace with the path to your sound file
+        var muteToggleSoundSrc = 'audio/Button.mp3'; // replace with the path to your sound file
         var muteButton = document.getElementById('muteButton');
         if (!muteButton) {
             muteButton = document.createElement('button');
