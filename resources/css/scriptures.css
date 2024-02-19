@@ -29,6 +29,32 @@
     --scene-image-border-color: #F8F8FF;
     /* ... other variables as needed */
 }
+#actionsSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+#actionTitle{
+    background-color: var(--path-title-background-color);
+    border: 5px solid var(--path-title-border-color);
+    border-radius: 5px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+    width: 30%;
+    color: var(--path-title-color);
+    display: table;
+}
+#actions{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
 body {
     display: flex;
     justify-content: center;
@@ -99,6 +125,38 @@ body {
     color: var(--game-title-color);
     display: table;
 }
+#inventoryList {
+    background-color: var(--button-color);
+    border: 5px solid var(--button-border-color);
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 30%;
+    color: var(--button-text-color);
+    display: table;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin: 10px auto;
+}
+#inventorySection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 20px;
+}
+#inventoryTitle{
+    background-color: var(--game-option-title-background-color);
+    border: 5px solid var(--game-option-title-border-color);
+    border-radius: 5px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+    width: 30%;
+    color: var(--game-option-title-color);
+    display: table;
+}
 #optionTitle{
     background-color: var(--game-option-title-background-color);
     border: 5px solid var(--game-option-title-border-color);
@@ -117,6 +175,47 @@ body {
     margin-bottom: 5px;
     width: 30%;
     color: var(--path-title-color);
+    display: table;
+}
+#playerSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    margin-bottom: 20px;
+}
+#playerStats{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+#playerStats p{
+    background-color: var(--button-color);
+    border: 5px solid var(--button-border-color);
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 30%;
+    color: var(--button-text-color);
+    display: table;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin: 10px auto;
+}
+#playerStatsTitle{
+    background-color: var(--game-option-title-background-color);
+    border: 5px solid var(--game-option-title-border-color);
+    border-radius: 5px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+    width: 30%;
+    color: var(--game-option-title-color);
     display: table;
 }
 #sceneAct {
@@ -146,6 +245,24 @@ body {
 #storyText {
     text-align: center;
     margin-bottom: 20px;
+}
+.actionButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 20px;
+    padding: 10px;
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    border: 5px solid var(--button-border-color);
+    border-radius: 5px;
+    width: 40%;
+    cursor: pointer;
+}
+.actionButton:hover {
+    background-color: var(--button-hover-color);
+    border: 5px solid var(--button-hover-border-color);
+    border-radius: 5px;
 }
 .choiceButton {
     display: flex;

@@ -42,7 +42,8 @@ var scenes = {
                 'audio': 'audio/Button.mp3'
             }
         ],
-        'gameOptions': []
+        'gameOptions': [],
+        'actions': []
     },
     'startJourney': {
         // Scene data for starting the journey...
@@ -101,6 +102,16 @@ var scenes = {
             {
                 'text': 'Filler Button With Some Extra Text',
                 'target': 'start',
+                'audio': 'audio/Button.mp3'
+            }
+        ],
+        'actions': [
+            {
+                'text': 'Eat Food',
+                'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Spend All Your Money',
                 'audio': 'audio/Button.mp3'
             }
         ]
@@ -164,6 +175,16 @@ var scenes = {
                 'target': 'start',
                 'audio': 'audio/Button.mp3'
             }
+        ],
+        'actions': [
+            {
+                'text': 'Eat Food',
+                'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Spend All Your Money',
+                'audio': 'audio/Button.mp3'
+            }
         ]
     },
     'seekBurgers': {
@@ -223,6 +244,16 @@ var scenes = {
             {
                 'text': 'Filler Button',
                 'target': 'start',
+                'audio': 'audio/Button.mp3'
+            }
+        ],
+        'actions': [
+            {
+                'text': 'Eat Food',
+                'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Spend All Your Money',
                 'audio': 'audio/Button.mp3'
             }
         ]
@@ -286,6 +317,16 @@ var scenes = {
                 'target': 'start',
                 'audio': 'audio/Button.mp3'
             }
+        ],
+        'actions': [
+            {
+                'text': 'Eat Food',
+                'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Spend All Your Money',
+                'audio': 'audio/Button.mp3'
+            }
         ]
     },
     'insideBurgerWorld': {
@@ -347,10 +388,171 @@ var scenes = {
                 'target': 'start',
                 'audio': 'audio/Button.mp3'
             }
+        ],
+        'actions': [
+            {
+                'text': 'Eat Food',
+                'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Spend All Your Money',
+                'audio': 'audio/Button.mp3'
+            }
         ]
     }
     // Other scenes...
 };
+
+var player = {
+    stats: {
+        health: 100,
+        money: 50,
+        food: 10,
+        water: 10,
+        sleep: 10
+        // add more as we go
+    },
+    inventory: {
+        food: ["apple"],
+        tools: ["hammer"]
+        // add more as we go
+    }
+};
+
+// Define min and max values for stats
+const statRanges = {
+    health: { min: 0, max: 100 },
+    food: { min: 0, max: 10 },
+    water: { min: 0, max: 10 },
+    sleep: { min: 0, max: 10 },
+    money: { min: 0 } // Example: no max limit for money
+};
+
+// Function to update a player's stat
+function updateStat(stat, value) {
+    if (player.stats.hasOwnProperty(stat)) {
+        player.stats[stat] += value;
+
+        // Apply min/max limits if they exist for this stat
+        if (statRanges[stat]) {
+            if (statRanges[stat].hasOwnProperty('min')) {
+                player.stats[stat] = Math.max(statRanges[stat].min, player.stats[stat]);
+            }
+            if (statRanges[stat].hasOwnProperty('max')) {
+                player.stats[stat] = Math.min(statRanges[stat].max, player.stats[stat]);
+            }
+        }
+
+        // Check if the stat hits zero and restart the game if so
+        if (stat !== 'money' && player.stats[stat] <= 0) {
+            alert(`Sorry, one or more of your stats: (${stat}) has reached zero, so the game has been restarted, thank you for playing and keep trying!`);
+            restartGame();
+            return; // Exit the function early to avoid updating UI unnecessarily
+        }
+
+        // Update UI
+        document.getElementById(stat).innerText = `${stat.charAt(0).toUpperCase() + stat.slice(1)}: ${player.stats[stat]}`;
+    }
+}
+
+
+// Function to add an item to the inventory
+function addToInventory(category, item) {
+    if (player.inventory[category]) {
+        player.inventory[category].push(item);
+        updateInventoryUI();
+    } else {
+        alert(`Inventory category: ${category}, does not exist.`);
+    }
+}
+
+// Function to remove an item from the inventory
+function removeFromInventory(category, item) {
+    if (player.inventory[category]) {
+        const index = player.inventory[category].indexOf(item);
+        if (index > -1) {
+            player.inventory[category].splice(index, 1);
+            alert(`${item} has been removed from your inventory.`); // Alert for item removal
+            updateInventoryUI();
+        }
+    } else {
+        alert(`Inventory category: ${category}, does not exist.`);
+    }
+}
+
+function updateInventoryUI() {
+    const inventoryList = document.getElementById('inventoryList');
+    inventoryList.innerHTML = ''; // Clear the inventory list
+    Object.keys(player.inventory).forEach(category => {
+        player.inventory[category].forEach(item => {
+            const listItem = document.createElement('p');
+            listItem.className = 'inventoryList'
+            listItem.textContent = `${item} (${category})`;
+            inventoryList.appendChild(listItem);
+        });
+    });
+}
+
+function updateAllStatsUI() {
+    Object.keys(player.stats).forEach(stat => {
+        const statElement = document.getElementById(stat);
+        if (statElement) {
+            statElement.innerText = `${stat.charAt(0).toUpperCase() + stat.slice(1)}: ${player.stats[stat]}`;
+        }
+    });
+}
+
+function performAction(action) {
+    switch(action) {
+        case 'Eat Food':
+            if(player.inventory.food.length > 0) { // Check if there's any food
+                let foodItem = player.inventory.food.pop(); // Remove last food item
+                updateStat('health', 10); // Example: Restore health
+                alert(`${foodItem} has been removed from your inventory.`);
+            } else {
+                alert('You do not have any food in your inventory.');
+            }
+            break;
+        case 'Spend All Your Money':
+            if(player.stats.money > 0) {
+                let amountSpent = player.stats.money;
+                updateStat('money', -amountSpent); // Deduct all money
+                alert(`You have spent all your money! Total amount spent: $${amountSpent}.`);
+            } else {
+                alert('You do not have any money to spend.');
+            }
+            break;
+        // Add more cases for different actions
+    }
+}
+
+function restartGame() {
+    // Example: Reset player stats and inventory to initial values
+    player.stats = {
+        health: 100,
+        money: 50,
+        food: 10,
+        water: 10,
+        sleep: 10
+    };
+    player.inventory = {
+        food: [],
+        tools: []
+    };
+
+    // Optionally: Update UI elements to reflect the reset state
+    updateAllStatsUI();
+    updateInventoryUI();
+
+    // Additional steps depending on game structure:
+    // For a simple approach, you could reload the webpage:
+    // location.reload();
+
+    // Or, if you have a specific start scene or function, call that:
+    // startGame(); or nextScene('start');
+
+    nextScene('start');
+}
 
 var isMuted = false;
 
@@ -429,6 +631,26 @@ function nextScene(sceneId) {
     // Play scene audio
     if (scene.audio) {
         playSound('sceneAudio', scene.audio);
+    }
+
+    var playerStatsSection = document.getElementById('playerStats');
+
+    if (sceneId === 'start') {
+        playerStatsSection.style.display = 'none'; // Hide player stats on start scene
+    } else {
+        playerStatsSection.style.display = 'flex'; // Show player stats on other scenes
+        // Update stats UI when showing the section
+        updateAllStatsUI();
+    }
+
+    var inventorySection = document.getElementById('inventorySection');
+
+    if (sceneId === 'start') {
+        inventorySection.style.display = 'none'; // Hide player stats on start scene
+    } else {
+        inventorySection.style.display = 'flex'; // Show player stats on other scenes
+        // Update stats UI when showing the section
+        updateInventoryUI();
     }
 
     var choicesContainer = document.getElementById('choices');
@@ -524,6 +746,31 @@ function nextScene(sceneId) {
             // Append the mute button to the gameOptionsContainer still so that on the beginning screen the player can mute
             gameOptionsContainer.appendChild(muteButton);
         }
+    }
+
+    var actionsContainer = document.getElementById('actions');
+    var actionsSection = document.getElementById('actionsSection');
+
+    actionsContainer.innerHTML = ''; // Clear previous choices
+    
+    if (scene.actions && scene.actions.length > 0) {
+        actionsSection.style.display = ''; // Show the section if there are choice options
+    
+        scene.actions.forEach(function(action) {
+            var actionButton = document.createElement('button');
+            actionButton.innerText = action.text;
+            actionButton.className = 'actionButton'; // Use className instead of classList
+            actionButton.onclick = function() {
+                if (action.audio) {
+                    playSound('actionAudio', action.audio); // 'buttonAudio' is the id of the button click sound element
+                }
+                performAction(action.text);
+
+            };
+            actionsContainer.appendChild(actionButton);
+        });
+    } else {
+        actionsSection.style.display = 'none'; // Hide the section if there are no choice options
     }
 }
 // Initialize the first scene
