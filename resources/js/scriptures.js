@@ -445,13 +445,17 @@ function updateStat(stat, value) {
 
         // Check if the stat hits zero and restart the game if so
         if (stat !== 'money' && player.stats[stat] <= 0) {
-            alert(`Sorry, one or more of your stats: (${stat}) has reached zero, so the game has been restarted, thank you for playing and keep trying!`);
+            alert(`Sorry, one or more of your stats: (${stat}) has reached zero (or less), so the game has been restarted, thank you for playing and keep trying!`);
             restartGame();
             return; // Exit the function early to avoid updating UI unnecessarily
         }
 
         // Update UI
-        document.getElementById(stat).innerText = `${stat.charAt(0).toUpperCase() + stat.slice(1)}: ${player.stats[stat]}`;
+        if (stat === 'money') {
+            document.getElementById(stat).innerText = `${stat.charAt(0).toUpperCase() + stat.slice(1)}: $${player.stats[stat]}`;
+        } else {
+            document.getElementById(stat).innerText = `${stat.charAt(0).toUpperCase() + stat.slice(1)}: ${player.stats[stat]}`; 
+        }
     }
 }
 
@@ -497,7 +501,11 @@ function updateAllStatsUI() {
     Object.keys(player.stats).forEach(stat => {
         const statElement = document.getElementById(stat);
         if (statElement) {
-            statElement.innerText = `${stat.charAt(0).toUpperCase() + stat.slice(1)}: ${player.stats[stat]}`;
+            if (stat === 'money'){
+                statElement.innerText = `${stat.charAt(0).toUpperCase() + stat.slice(1)}: $${player.stats[stat]}`;
+            } else {
+                statElement.innerText = `${stat.charAt(0).toUpperCase() + stat.slice(1)}: ${player.stats[stat]}`;
+            }
         }
     });
 }
