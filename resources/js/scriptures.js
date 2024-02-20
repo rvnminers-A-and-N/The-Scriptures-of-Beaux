@@ -108,6 +108,18 @@ var scenes = {
             {
                 'text': 'Spend All Your Money',
                 'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Sleep Eight Hours',
+                'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Stay Up All Night',
+                'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Drink Weird Random Drink On Ground',
+                'audio': 'audio/Button.mp3'
             }
         ]
     },
@@ -173,6 +185,18 @@ var scenes = {
             },
             {
                 'text': 'Spend All Your Money',
+                'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Sleep Eight Hours',
+                'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Stay Up All Night',
+                'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Drink Weird Random Drink On Ground',
                 'audio': 'audio/Button.mp3'
             }
         ]
@@ -240,6 +264,18 @@ var scenes = {
             {
                 'text': 'Spend All Your Money',
                 'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Sleep Eight Hours',
+                'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Stay Up All Night',
+                'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Drink Weird Random Drink On Ground',
+                'audio': 'audio/Button.mp3'
             }
         ]
     },
@@ -305,6 +341,18 @@ var scenes = {
             },
             {
                 'text': 'Spend All Your Money',
+                'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Sleep Eight Hours',
+                'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Stay Up All Night',
+                'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Drink Weird Random Drink On Ground',
                 'audio': 'audio/Button.mp3'
             }
         ]
@@ -372,6 +420,18 @@ var scenes = {
             {
                 'text': 'Spend All Your Money',
                 'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Sleep Eight Hours',
+                'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Stay Up All Night',
+                'audio': 'audio/Button.mp3'
+            },
+            {
+                'text': 'Drink Weird Random Drink On Ground',
+                'audio': 'audio/Button.mp3'
             }
         ]
     }
@@ -388,8 +448,8 @@ var player = {
         // add more as we go
     },
     inventory: {
-        food: ["apple", "banana", "strawberry"],
-        tools: ["hammer", "wrench", "screwdriver"]
+        food: ["Apple", "Banana", "Strawberry"],
+        tools: ["Hammer", "Wrench", "Screwdriver"]
         // add more as we go
     }
 };
@@ -419,8 +479,8 @@ function updateStat(stat, value) {
         }
 
         // Check if the stat hits zero and restart the game if so
-        if (stat !== 'money' && player.stats[stat] <= 0) {
-            alert(`Sorry, one or more of your stats: (${stat}) has reached zero (or less), so the game has been restarted, thank you for playing and keep trying!`);
+        if (stat !== 'money' && stat !== 'sleep' && player.stats[stat] <= 0) {
+            alert(`Sorry, one or more of your stats: (${stat}), has reached zero (or less), so the game has been restarted, thank you for playing and keep trying!`);
             restartGame();
             return; // Exit the function early to avoid updating UI unnecessarily
         }
@@ -437,13 +497,17 @@ function updateStat(stat, value) {
 
 // Function to add an item to the inventory
 function addToInventory(category, item) {
-    if (player.inventory[category]) {
-        player.inventory[category].push(item);
-        updateInventoryUI();
-        alert(`${item} has been added to your inventory.`); // Alert for item removal
-    } else {
-        alert(`Inventory category: ${category}, does not exist.`);
+    // Check if the category exists
+    if (!player.inventory[category]) {
+        // If not, create a new array for this category
+        player.inventory[category] = [];
+        alert(`New category: ${category}, has been created.`);
     }
+
+    // Add the item to the category
+    player.inventory[category].push(item);
+    updateInventoryUI();
+    alert(`The ${item} has been added to your inventory under the ${category} category.`);
 }
 
 // Function to remove an item from the inventory
@@ -453,7 +517,7 @@ function removeFromInventory(category, item) {
         if (index > -1) {
             player.inventory[category].splice(index, 1);
             updateInventoryUI();
-            alert(`${item} has been removed from your inventory.`); // Alert for item removal
+            alert(`The ${item} has been removed from your inventory.`); // Alert for item removal
         }
     } else {
         alert(`Inventory category: ${category}, does not exist.`);
@@ -483,12 +547,12 @@ function updateInventoryUI() {
             const listItem = document.createElement('h4');
             listItem.className = 'inventoryListItem';
             listItem.textContent = `${item}`; // Assuming item is a string, adjust if it's an object
-            categoryContainer.appendChild(listItem);
-            // itemList.appendChild(listItem);
+            // categoryContainer.appendChild(listItem);
+            itemList.appendChild(listItem);
         });
 
         // Append the itemList after the categoryBanner inside the category container
-        // categoryContainer.appendChild(itemList);
+        categoryContainer.appendChild(itemList);
 
         // Append the category container to the inventory list
         inventoryList.appendChild(categoryContainer);
@@ -496,14 +560,23 @@ function updateInventoryUI() {
 }
 
 function updateAllStatsUI() {
+    const statsContainer = document.getElementById('statsOptions'); // Ensure this ID matches your container for stats
+
     Object.keys(player.stats).forEach(stat => {
-        const statElement = document.getElementById(stat);
-        if (statElement) {
-            if (stat === 'money'){
-                statElement.innerText = `${stat.charAt(0).toUpperCase() + stat.slice(1)}: $${player.stats[stat]}`;
-            } else {
-                statElement.innerText = `${stat.charAt(0).toUpperCase() + stat.slice(1)}: ${player.stats[stat]}`;
-            }
+        let statElement = document.getElementById(stat);
+
+        // If the stat element doesn't exist, create it
+        if (!statElement) {
+            statElement = document.createElement('p');
+            statElement.id = stat;
+            statsContainer.appendChild(statElement);
+        }
+
+        // Update the stat element's text
+        if (stat === 'money') {
+            statElement.innerText = `${stat.charAt(0).toUpperCase() + stat.slice(1)}: $${player.stats[stat]}`;
+        } else {
+            statElement.innerText = `${stat.charAt(0).toUpperCase() + stat.slice(1)}: ${player.stats[stat]}`;
         }
     });
 }
@@ -513,21 +586,59 @@ function performAction(action) {
         case 'Eat Food':
             if(player.inventory.food.length > 0) { // Check if there's any food
                 var foodItem = player.inventory.food[0]; // Get the first food item
-                removeFromInventory('food', foodItem); // Use the function to remove it
-                updateStat('health', 10); // Example: Restore health
-                alert(`${foodItem} has been eaten, your health stat has gone up by 10 points!`);
-                updateInventoryUI();
+                if(player.stats.food < 100) { // Assuming 100 is the max value for food stat
+                    removeFromInventory('food', foodItem); // Use the function to remove it
+                    updateStat('health', 10); // Example: Restore health
+                    updateStat('food', 2); // Increase food stat, assuming it decreases over time and needs replenishing
+                    alert(`The ${foodItem} has been eaten, your health stat has gone up by 10 points and your food stats has gone up by 2 points!`);
+                } else {
+                    alert(`You are already full, Beaux. You can wait!`);
+                }
             } else {
                 alert('You do not have any food in your inventory.');
             }
+            break;
+        case 'Drink Weird Random Drink On Ground':
+            // Check if the energy stat already exists
+            if (typeof player.stats.energy === 'undefined') {
+                // If not, initialize it
+                player.stats.energy = 100; // Initial energy value
+                // Optionally, define its range
+                statRanges.energy = { min: 0, max: 100 };
+            }
+            // Show a message about the new stat
+            alert(`You find a weird random drink on the ground, chug it, and feel energized! You've gained an energy stat!`);
+            // Ensure UI updates
+            updateAllStatsUI();
+            alert(`You thought that did not have consequences, Beaux? Minus 20 Health Points for drinking random fluids off the ground!.`)
+            // Update the energy stat by a certain value (could be more logic here based on conditions)
+            updateStat('health', -20); // Increase energy
             break;
         case 'Spend All Your Money':
             if(player.stats.money > 0) {
                 let amountSpent = player.stats.money;
                 updateStat('money', -amountSpent); // Deduct all money
-                alert(`You have spent all your money! Total amount spent: $${amountSpent}.`);
+                alert(`You have spent all your money! Total amount spent: $${amountSpent}. How foolish!`);
             } else {
-                alert('You do not have any money to spend.');
+                alert('You do not have any money to spend!');
+            }
+            break;
+        case 'Sleep Eight Hours':
+            if(player.stats.sleep > 0) {
+                updateStat('sleep', 8); // Gain Eight Hours of Sleep
+                alert(`You have slept eight hours! Get back out there and echelon Beaux!`);
+            } else {
+                alert('You almost fell asleep Beaux!');
+                restartGame();
+            }
+            break;
+        case 'Stay Up All Night':
+            if(player.stats.sleep > 0) {
+                updateStat('sleep', -10); // Lose All Sleep
+                alert(`You rolled Katamari all night when you should have been sleeping so you could echelon through the day!`);
+            } else {
+                alert('No sleep till Brooklyn Beaux!');
+                restartGame();
             }
             break;
         // Add more cases for different actions
