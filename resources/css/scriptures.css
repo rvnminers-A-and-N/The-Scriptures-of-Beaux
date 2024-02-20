@@ -67,6 +67,22 @@ body {
     color: var(--body-color);
     padding: 20px;
 }
+#categoryBanner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+#categoryContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
 #choices {
     display: flex;
     flex-direction: row;
@@ -131,18 +147,30 @@ body {
     display: table;
 }
 #inventoryList {
-    background-color: var(--button-color);
-    border: 5px solid var(--button-border-color);
+    background-color: var(--game-option-button-color);
+    border: 5px solid var(--game-option-button-border-color);
     border-radius: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
     width: 30%;
-    color: var(--button-text-color);
-    display: table;
+    color: var(--game-option-button-text-color);
+    display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     align-content: center;
     margin: 10px auto;
+}
+#inventoryListItem {
+    background-color: var(--game-option-title-background-color);
+    border: 5px solid var(--game-option-title-border-color);
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 5px;
+    width: 30%;
+    color: var(--game-option-title-color);
+    display: table;
 }
 #inventorySection {
     display: flex;
@@ -163,6 +191,15 @@ body {
     width: 15%;
     color: var(--game-option-title-color);
     display: table;
+}
+#itemList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+    margin: 0 auto;
 }
 #optionTitle {
     background-color: var(--game-option-title-background-color);

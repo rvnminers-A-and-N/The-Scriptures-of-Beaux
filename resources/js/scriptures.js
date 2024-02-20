@@ -95,11 +95,6 @@ var scenes = {
         ],
         'gameOptions': [
             {
-                'text': 'Restart The Current Playthrough',
-                'target': 'start',
-                'audio': 'audio/Button.mp3'
-            },
-            {
                 'text': 'Filler Button With Some Extra Text',
                 'target': 'start',
                 'audio': 'audio/Button.mp3'
@@ -165,11 +160,6 @@ var scenes = {
             }
         ],
         'gameOptions': [
-            {
-                'text': 'Restart The Game',
-                'target': 'start',
-                'audio': 'audio/Button.mp3'
-            },
             {
                 'text': 'Filler Button',
                 'target': 'start',
@@ -237,11 +227,6 @@ var scenes = {
         ],
         'gameOptions': [
             {
-                'text': 'Restart The Game',
-                'target': 'start',
-                'audio': 'audio/Button.mp3'
-            },
-            {
                 'text': 'Filler Button',
                 'target': 'start',
                 'audio': 'audio/Button.mp3'
@@ -307,11 +292,6 @@ var scenes = {
             }
         ],
         'gameOptions': [
-            {
-                'text': 'Restart The Game',
-                'target': 'start',
-                'audio': 'audio/Button.mp3'
-            },
             {
                 'text': 'Filler Button',
                 'target': 'start',
@@ -379,11 +359,6 @@ var scenes = {
         ],
         'gameOptions': [
             {
-                'text': 'Restart The Game',
-                'target': 'start',
-                'audio': 'audio/Button.mp3'
-            },
-            {
                 'text': 'Filler Button',
                 'target': 'start',
                 'audio': 'audio/Button.mp3'
@@ -413,8 +388,8 @@ var player = {
         // add more as we go
     },
     inventory: {
-        food: ["apple"],
-        tools: ["hammer"]
+        food: ["apple", "banana", "strawberry"],
+        tools: ["hammer", "wrench", "screwdriver"]
         // add more as we go
     }
 };
@@ -465,6 +440,7 @@ function addToInventory(category, item) {
     if (player.inventory[category]) {
         player.inventory[category].push(item);
         updateInventoryUI();
+        alert(`${item} has been added to your inventory.`); // Alert for item removal
     } else {
         alert(`Inventory category: ${category}, does not exist.`);
     }
@@ -476,8 +452,8 @@ function removeFromInventory(category, item) {
         const index = player.inventory[category].indexOf(item);
         if (index > -1) {
             player.inventory[category].splice(index, 1);
-            alert(`${item} has been removed from your inventory.`); // Alert for item removal
             updateInventoryUI();
+            alert(`${item} has been removed from your inventory.`); // Alert for item removal
         }
     } else {
         alert(`Inventory category: ${category}, does not exist.`);
@@ -487,13 +463,35 @@ function removeFromInventory(category, item) {
 function updateInventoryUI() {
     const inventoryList = document.getElementById('inventoryList');
     inventoryList.innerHTML = ''; // Clear the inventory list
+
     Object.keys(player.inventory).forEach(category => {
+        // Create a container for each category
+        const categoryContainer = document.createElement('div');
+        categoryContainer.className = 'categoryContainer';
+
+        // Create and append the category banner
+        const categoryBanner = document.createElement('h2');
+        categoryBanner.className = 'categoryBanner';
+        categoryBanner.textContent = `${category.charAt(0).toUpperCase() + category.slice(1)}`; // Capitalize the first letter of category
+        categoryContainer.appendChild(categoryBanner);
+
+        // Create a list for items under this category
+        const itemList = document.createElement('ul');
+        itemList.className = 'itemList';
+
         player.inventory[category].forEach(item => {
-            const listItem = document.createElement('p');
-            listItem.className = 'inventoryList'
-            listItem.textContent = `${item} (${category})`;
-            inventoryList.appendChild(listItem);
+            const listItem = document.createElement('h4');
+            listItem.className = 'inventoryListItem';
+            listItem.textContent = `${item}`; // Assuming item is a string, adjust if it's an object
+            categoryContainer.appendChild(listItem);
+            // itemList.appendChild(listItem);
         });
+
+        // Append the itemList after the categoryBanner inside the category container
+        // categoryContainer.appendChild(itemList);
+
+        // Append the category container to the inventory list
+        inventoryList.appendChild(categoryContainer);
     });
 }
 
@@ -514,9 +512,11 @@ function performAction(action) {
     switch(action) {
         case 'Eat Food':
             if(player.inventory.food.length > 0) { // Check if there's any food
-                let foodItem = player.inventory.food.pop(); // Remove last food item
+                var foodItem = player.inventory.food[0]; // Get the first food item
+                removeFromInventory('food', foodItem); // Use the function to remove it
                 updateStat('health', 10); // Example: Restore health
-                alert(`${foodItem} has been removed from your inventory.`);
+                alert(`${foodItem} has been eaten, your health stat has gone up by 10 points!`);
+                updateInventoryUI();
             } else {
                 alert('You do not have any food in your inventory.');
             }
@@ -544,8 +544,8 @@ function restartGame() {
         sleep: 10
     };
     player.inventory = {
-        food: [],
-        tools: []
+        food: ["apple"],
+        tools: ["hammer"]
     };
 
     // Optionally: Update UI elements to reflect the reset state
@@ -706,8 +706,30 @@ function nextScene(sceneId) {
             gameOptionsContainer.appendChild(button);
         });
 
-        var muteToggleSoundSrc = 'audio/Button.mp3'; // replace with the path to your sound file
-        var muteButton = document.getElementById('muteButton');
+        var restartSoundSrc = 'audio/Button.mp3'; // replace with the path to your sound file
+        var restartButton = document.getElementById('restartButton');
+        if (!restartButton) {
+            restartButton = document.createElement('button');
+            restartButton.id = 'restartButton'; // Assign an ID for easy access
+            restartButton.className = 'gameOptionsButton'; // Reuse the same style class
+            restartButton.innerText = 'Click This Button To Restart The Game'; // Set the initial text based on isMuted state
+
+            // Attach click event to toggle mute
+            restartButton.onclick = function() {
+                // If the game is now unmuted, play the sound for mute toggle button click
+                if (!isMuted) {
+                    playSound('muteToggleAudio', muteToggleSoundSrc); // Use 'muteToggleAudio' as the ID for the mute toggle audio
+                }
+                // Restart the game
+                restartGame();
+            };
+
+            // Append the mute button to the gameOptionsContainer
+            gameOptionsContainer.appendChild(restartButton);
+        }
+
+        var restartSoundSrc = 'audio/Button.mp3'; // replace with the path to your sound file
+        var restartButton = document.getElementById('restartButton');
         if (!muteButton) {
             muteButton = document.createElement('button');
             muteButton.id = 'muteButton'; // Assign an ID for easy access
