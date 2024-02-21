@@ -43,7 +43,8 @@ var scenes = {
             }
         ],
         'gameOptions': [],
-        'actions': []
+        'actions': [],
+        'timeAdvance': 0
     },
     'startJourney': {
         // Scene data for starting the journey...
@@ -103,25 +104,36 @@ var scenes = {
         'actions': [
             {
                 'text': 'Eat Food',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Spend All Your Money',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Sleep Eight Hours',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Stay Up All Night',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
+            },
+            {
+                'text': 'Work Eight Hours',
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Drink Weird Random Drink On Ground',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': true
             }
-        ]
+        ],
+        'timeAdvance': 0
     },
     'startCoding': {
         // Scene data for starting coding...
@@ -181,25 +193,36 @@ var scenes = {
         'actions': [
             {
                 'text': 'Eat Food',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Spend All Your Money',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Sleep Eight Hours',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Stay Up All Night',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
+            },
+            {
+                'text': 'Work Eight Hours',
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Drink Weird Random Drink On Ground',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': true
             }
-        ]
+        ],
+        'timeAdvance': 30
     },
     'seekBurgers': {
         // Scene data for seeking food from Burger World...
@@ -259,25 +282,36 @@ var scenes = {
         'actions': [
             {
                 'text': 'Eat Food',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Spend All Your Money',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Sleep Eight Hours',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Stay Up All Night',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
+            },
+            {
+                'text': 'Work Eight Hours',
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Drink Weird Random Drink On Ground',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': true
             }
-        ]
+        ],
+        'timeAdvance': 30
     },
     'encounterGoosDraba': {
         // Scene data for seeking food from Burger World...
@@ -337,25 +371,36 @@ var scenes = {
         'actions': [
             {
                 'text': 'Eat Food',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Spend All Your Money',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Sleep Eight Hours',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Stay Up All Night',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
+            },
+            {
+                'text': 'Work Eight Hours',
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Drink Weird Random Drink On Ground',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': true
             }
-        ]
+        ],
+        'timeAdvance': 30
     },
     'insideBurgerWorld': {
         // Scene data for seeking food from Burger World...
@@ -415,28 +460,76 @@ var scenes = {
         'actions': [
             {
                 'text': 'Eat Food',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Spend All Your Money',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Sleep Eight Hours',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Stay Up All Night',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
+            },
+            {
+                'text': 'Work Eight Hours',
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': false
             },
             {
                 'text': 'Drink Weird Random Drink On Ground',
-                'audio': 'audio/Button.mp3'
+                'audio': 'audio/Button.mp3',
+                'oneTimeUse': true
             }
-        ]
+        ],
+        'timeAdvance': 30
     }
     // Other scenes...
 };
+
+var gameTime = {
+    hour: 6, // Game start time
+    minute: 0,
+    day: 1 // Start on day 1
+};
+
+function updateClockText() {
+    // Convert 24-hour time to 12-hour format
+    let hour = gameTime.hour;
+    let period = "AM";
+    if (hour >= 12) {
+        period = "PM";
+        if (hour > 12) hour -= 12;
+    }
+    if (hour === 0) hour = 12; // Handle midnight
+
+    // Ensure minutes are two digits
+    let minute = gameTime.minute < 10 ? "0" + gameTime.minute : gameTime.minute;
+
+    // Update the display
+    document.getElementById('gameTimeDisplay').innerHTML = `<h2>Time: ${hour}:${minute} ${period}, Day: ${gameTime.day}</h2>`;
+}
+
+function advanceTime(minutes) {
+    gameTime.minute += minutes;
+    while (gameTime.minute >= 60) {
+        gameTime.minute -= 60;
+        gameTime.hour += 1;
+    }
+    while (gameTime.hour >= 24) {
+        gameTime.hour -= 24;
+        gameTime.day += 1; // Move to the next day
+    }
+
+    updateClockText(); // Also update the day display if included
+}
 
 var player = {
     stats: {
@@ -448,9 +541,20 @@ var player = {
         // add more as we go
     },
     inventory: {
-        food: ["Apple", "Banana", "Strawberry"],
-        tools: ["Hammer", "Wrench", "Screwdriver"]
+        food: ["apple", "banana", "strawberry"],
+        tools: ["hammer", "wrench", "screwdriver"]
         // add more as we go
+    },
+    completedActions: {
+        oneTime: [],
+        multi: []
+    },
+    achievements: {
+        progress: [],
+        skill: [],
+        collection: [],
+        milestone: [],
+        special: []
     }
 };
 
@@ -546,8 +650,7 @@ function updateInventoryUI() {
         player.inventory[category].forEach(item => {
             const listItem = document.createElement('h4');
             listItem.className = 'inventoryListItem';
-            listItem.textContent = `${item}`; // Assuming item is a string, adjust if it's an object
-            // categoryContainer.appendChild(listItem);
+            listItem.textContent = `${item.charAt(0).toUpperCase() + item.slice(1)}`; // Capitalize the first letter of inventory item
             itemList.appendChild(listItem);
         });
 
@@ -586,11 +689,14 @@ function performAction(action) {
         case 'Eat Food':
             if(player.inventory.food.length > 0) { // Check if there's any food
                 var foodItem = player.inventory.food[0]; // Get the first food item
-                if(player.stats.food < 100) { // Assuming 100 is the max value for food stat
+                if(player.stats.food < 10) { // Assuming 10 is the max value for food stat
                     removeFromInventory('food', foodItem); // Use the function to remove it
                     updateStat('health', 10); // Example: Restore health
                     updateStat('food', 2); // Increase food stat, assuming it decreases over time and needs replenishing
                     alert(`The ${foodItem} has been eaten, your health stat has gone up by 10 points and your food stats has gone up by 2 points!`);
+                    // If the action is not a one-time action, log it for achievements or other tracking
+                    player.completedActions.multi.push(action);
+                    checkAchievements(); // Check and update achievements based on the latest action
                 } else {
                     alert(`You are already full, Beaux. You can wait!`);
                 }
@@ -610,23 +716,42 @@ function performAction(action) {
             alert(`You find a weird random drink on the ground, chug it, and feel energized! You've gained an energy stat!`);
             // Ensure UI updates
             updateAllStatsUI();
-            alert(`You thought that did not have consequences, Beaux? Minus 20 Health Points for drinking random fluids off the ground!.`)
+            alert(`You thought that did not have consequences, Beaux? Minus 20 Health Points for drinking random fluids off the ground! On top of that, minus 4 Water Points because that was dehydrating!`);
             // Update the energy stat by a certain value (could be more logic here based on conditions)
-            updateStat('health', -20); // Increase energy
+            updateStat('health', -20); // Decrease health
+            updateStat('water', -4); // Decrease water
+            checkAchievements(); // Check and update achievements based on the latest action
             break;
         case 'Spend All Your Money':
             if(player.stats.money > 0) {
                 let amountSpent = player.stats.money;
                 updateStat('money', -amountSpent); // Deduct all money
                 alert(`You have spent all your money! Total amount spent: $${amountSpent}. How foolish!`);
+                // If the action is not a one-time action, log it for achievements or other tracking
+                player.completedActions.multi.push(action);
+                checkAchievements(); // Check and update achievements based on the latest action
             } else {
                 alert('You do not have any money to spend!');
             }
             break;
+        case 'Work Eight Hours':
+            let workMoney = 200;
+            updateStat('money', workMoney); // Add $200
+            advanceTime(480);
+            alert(`You have worked a full shift! You made: $${workMoney}. How neat!`);
+            // If the action is not a one-time action, log it for achievements or other tracking
+            player.completedActions.multi.push(action);
+            checkAchievements(); // Check and update achievements based on the latest action
+            break;
         case 'Sleep Eight Hours':
             if(player.stats.sleep > 0) {
-                updateStat('sleep', 8); // Gain Eight Hours of Sleep
-                alert(`You have slept eight hours! Get back out there and echelon Beaux!`);
+                let someSleep = 8;
+                updateStat('sleep', someSleep); // Gain Eight Hours of Sleep
+                advanceTime(480);
+                alert(`You have slept ${someSleep} hours! Get back out there and echelon Beaux!`);
+                // If the action is not a one-time action, log it for achievements or other tracking
+                player.completedActions.multi.push(action);
+                checkAchievements(); // Check and update achievements based on the latest action
             } else {
                 alert('You almost fell asleep Beaux!');
                 restartGame();
@@ -635,7 +760,11 @@ function performAction(action) {
         case 'Stay Up All Night':
             if(player.stats.sleep > 0) {
                 updateStat('sleep', -10); // Lose All Sleep
+                advanceTime(480);
                 alert(`You rolled Katamari all night when you should have been sleeping so you could echelon through the day!`);
+                // If the action is not a one-time action, log it for achievements or other tracking
+                player.completedActions.multi.push(action);
+                checkAchievements(); // Check and update achievements based on the latest action
             } else {
                 alert('No sleep till Brooklyn Beaux!');
                 restartGame();
@@ -643,6 +772,32 @@ function performAction(action) {
             break;
         // Add more cases for different actions
     }
+}
+
+function logAchievement(category, achievement) {
+    // Check if the category exists
+    if (!player.achievements[category]) {
+        // If not, create a new array for this category
+        player.achievements[category] = [];
+        alert(`New achievements category: ${category}, has been created.`);
+    }
+
+    if (!player.achievements[category].includes(achievement)) {
+        player.achievements[category].push(achievement);
+        alert(`Achievement unlocked: ${achievement}!`);
+        // Optionally, trigger a UI update to show the achievement, TODO
+        // updateAchievementsUI();
+    }
+}
+
+function checkAchievements() {
+    // Example: Achievement for spending all your money 5 times
+    let timesMoneySpent = player.completedActions.multi.filter(action => action === 'Spend All Your Money').length;
+    if (timesMoneySpent >= 2) {
+        // Grant the achievement
+        logAchievement('secret', 'Foolishness')
+    }
+    // Add more achievement checks as needed
 }
 
 function restartGame() {
@@ -655,13 +810,24 @@ function restartGame() {
         sleep: 10
     };
     player.inventory = {
-        food: ["apple"],
-        tools: ["hammer"]
+        food: ["apple", "banana", "strawberry"],
+        tools: ["hammer", "wrench", "screwdriver"]
+    };
+    player.completedActions = {
+        oneTime: [],
+        multi: []
     };
 
+    // Correctly reset the gameTime to 6 AM on Day 1
+    gameTime.hour = 6; // Set hour to 6
+    gameTime.minute = 0; // Set minute to 0
+    gameTime.day = 1; // Set day to 1
+
     // Optionally: Update UI elements to reflect the reset state
+    updateClockText();
     updateAllStatsUI();
     updateInventoryUI();
+    
 
     // Additional steps depending on game structure:
     // For a simple approach, you could reload the webpage:
@@ -752,6 +918,20 @@ function nextScene(sceneId) {
         playSound('sceneAudio', scene.audio);
     }
 
+    // Update Time Between Scene
+    if (scene.timeAdvance) {
+        var timeJump = scene.timeAdvance;
+        advanceTime(timeJump);
+    }
+
+    var actionsSection = document.getElementById('actionsSection');
+
+    if (sceneId === 'start') {
+        actionsSection.style.display = 'none'; // Hide player stats on start scene
+    } else {
+        actionsSection.style.display = 'flex'; // Show player stats on other scenes
+    }
+
     var playerStatsSection = document.getElementById('playerStats');
 
     if (sceneId === 'start') {
@@ -770,6 +950,18 @@ function nextScene(sceneId) {
         inventorySection.style.display = 'flex'; // Show player stats on other scenes
         // Update stats UI when showing the section
         updateInventoryUI();
+    }
+
+    var gameTimeSection = document.getElementById('gameTimeDisplay');
+
+    if (sceneId === 'start') {
+        gameTimeSection.style.display = 'none'; // Hide clock on start scene
+    } else {
+        gameTimeSection.style.display = 'flex'; // Show clock on other scenes
+        gameTimeSection.style.flexDirection = 'column'; // Show clock on other scenes
+        gameTimeSection.style.flexWrap = 'wrap'; // Show clock on other scenes
+        // Update clock UI when showing the section
+        updateClockText();
     }
 
     var choicesContainer = document.getElementById('choices');
@@ -829,7 +1021,7 @@ function nextScene(sceneId) {
             restartButton.onclick = function() {
                 // If the game is now unmuted, play the sound for mute toggle button click
                 if (!isMuted) {
-                    playSound('muteToggleAudio', muteToggleSoundSrc); // Use 'muteToggleAudio' as the ID for the mute toggle audio
+                    playSound('restartAudio', restartSoundSrc); // Use 'muteToggleAudio' as the ID for the mute toggle audio
                 }
                 // Restart the game
                 restartGame();
@@ -839,8 +1031,8 @@ function nextScene(sceneId) {
             gameOptionsContainer.appendChild(restartButton);
         }
 
-        var restartSoundSrc = 'audio/Button.mp3'; // replace with the path to your sound file
-        var restartButton = document.getElementById('restartButton');
+        var muteToggleSoundSrc = 'audio/Button.mp3'; // replace with the path to your sound file
+        var muteButton = document.getElementById('muteButton');
         if (!muteButton) {
             muteButton = document.createElement('button');
             muteButton.id = 'muteButton'; // Assign an ID for easy access
@@ -861,6 +1053,40 @@ function nextScene(sceneId) {
 
             // Append the mute button to the gameOptionsContainer
             gameOptionsContainer.appendChild(muteButton);
+        }
+
+        var actionsContainer = document.getElementById('actions');
+        var actionsSection = document.getElementById('actionsSection');
+
+        actionsContainer.innerHTML = ''; // Clear previous choices
+    
+        if (scene.actions && scene.actions.length > 0) {
+            actionsSection.style.display = ''; // Show the section if there are choice options
+    
+            scene.actions.forEach(function(action) {
+                if (action.oneTimeUse && player.completedActions.oneTime.includes(action.text)) {
+                    return; // Skip creating this button
+                }
+                var actionButton = document.createElement('button');
+                actionButton.innerText = action.text;
+                actionButton.className = 'actionButton';
+                actionButton.onclick = function() {
+                    if (action.audio) {
+                        playSound('actionAudio', action.audio);
+                    }
+                    performAction(action.text);
+                    if (action.oneTimeUse) {
+                        actionButton.style.display = 'none';
+                        // Mark this action as completed by adding it to the completedActions array
+                        if (!player.completedActions.oneTime.includes(action.text)) {
+                            player.completedActions.oneTime.push(action.text);
+                        }
+                    }
+                };
+                actionsContainer.appendChild(actionButton);
+            });
+        } else {
+            actionsSection.style.display = 'none'; // Hide the section if there are no choice options
         }
     } else {
         //gameOptionsSection.style.display = 'none'; // Hide the section if there are no game options
@@ -887,31 +1113,6 @@ function nextScene(sceneId) {
             // Append the mute button to the gameOptionsContainer still so that on the beginning screen the player can mute
             gameOptionsContainer.appendChild(muteButton);
         }
-    }
-
-    var actionsContainer = document.getElementById('actions');
-    var actionsSection = document.getElementById('actionsSection');
-
-    actionsContainer.innerHTML = ''; // Clear previous choices
-    
-    if (scene.actions && scene.actions.length > 0) {
-        actionsSection.style.display = ''; // Show the section if there are choice options
-    
-        scene.actions.forEach(function(action) {
-            var actionButton = document.createElement('button');
-            actionButton.innerText = action.text;
-            actionButton.className = 'actionButton'; // Use className instead of classList
-            actionButton.onclick = function() {
-                if (action.audio) {
-                    playSound('actionAudio', action.audio); // 'buttonAudio' is the id of the button click sound element
-                }
-                performAction(action.text);
-
-            };
-            actionsContainer.appendChild(actionButton);
-        });
-    } else {
-        actionsSection.style.display = 'none'; // Hide the section if there are no choice options
     }
 }
 // Initialize the first scene

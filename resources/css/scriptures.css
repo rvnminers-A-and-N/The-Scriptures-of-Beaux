@@ -130,6 +130,21 @@ body {
     color: var(--game-title-color);
     display: table;
 }
+#gameTimeDisplay {
+    background-color: var(--game-title-background-color);
+    border: 5px solid var(--game-title-border-color);
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;                                                            
+    text-align: center;
+    width: 40%;
+    margin: 20px auto;
+    color: var(--game-title-color);
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
 #inventoryList {
     background-color: var(--game-option-button-color);
     border: 5px solid var(--game-option-button-border-color);
