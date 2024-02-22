@@ -542,7 +542,8 @@ var player = {
     },
     inventory: {
         food: ["apple", "banana", "strawberry"],
-        tools: ["hammer", "wrench", "screwdriver"]
+        tools: ["hammer", "wrench", "screwdriver"],
+        potions: ["red", "green", "blue"]
         // add more as we go
     },
     completedActions: {
@@ -651,14 +652,79 @@ function updateInventoryUI() {
             const listItem = document.createElement('h4');
             listItem.className = 'inventoryListItem';
             listItem.textContent = `${item.charAt(0).toUpperCase() + item.slice(1)}`; // Capitalize the first letter of inventory item
+            listItem.addEventListener('mouseover', function() {
+                listItem.style.cursor = 'pointer';
+            })
+            listItem.addEventListener('mouseout', function() {
+                listItem.style.cursor = 'default';
+            })
+            listItem.onclick = function() { giveDescription(item); }
+            listItem.textContent = `${item.charAt(0).toUpperCase() + item.slice(1)}`;
             itemList.appendChild(listItem);
         });
+
+        // Check if the category is empty and, if so, display a placeholder
+        if (player.inventory[category].length === 0) {
+            const emptyListItem = document.createElement('h4');
+            emptyListItem.className = 'inventoryListItem';
+            emptyListItem.textContent = "Go Find More Items!";
+            itemList.appendChild(emptyListItem);
+        }
 
         // Append the itemList after the categoryBanner inside the category container
         categoryContainer.appendChild(itemList);
 
         // Append the category container to the inventory list
         inventoryList.appendChild(categoryContainer);
+    });
+}
+
+function updateAchievementsUI() {
+    const achievementsList = document.getElementById('achievementsList');
+    achievementsList.innerHTML = ''; // Clear the inventory list
+
+    Object.keys(player.achievements).forEach(category => {
+        // Create a container for each category
+        const categoryContainer = document.createElement('div');
+        categoryContainer.className = 'categoryContainer';
+
+        // Create and append the category banner
+        const categoryBanner = document.createElement('h2');
+        categoryBanner.className = 'categoryBanner';
+        categoryBanner.textContent = `${category.charAt(0).toUpperCase() + category.slice(1)}`; // Capitalize the first letter of category
+        categoryContainer.appendChild(categoryBanner);
+
+        // Create a list for items under this category
+        const itemList = document.createElement('ul');
+        itemList.className = 'itemList';
+
+        player.achievements[category].forEach(item => {
+            const listItem = document.createElement('h4');
+            listItem.className = 'inventoryListItem';
+            listItem.addEventListener('mouseover', function() {
+                listItem.style.cursor = 'pointer';
+            })
+            listItem.addEventListener('mouseout', function() {
+                listItem.style.cursor = 'default';
+            })
+            listItem.onclick = function() { giveDescription(item); }
+            listItem.textContent = `${item.charAt(0).toUpperCase() + item.slice(1)}`; // Capitalize the first letter of inventory item
+            itemList.appendChild(listItem);
+        });
+
+        // Check if the category is empty and, if so, display a placeholder
+        if (player.achievements[category].length === 0) {
+            const emptyListItem = document.createElement('h4');
+            emptyListItem.className = 'inventoryListItem';
+            emptyListItem.textContent = "No Achievements Yet!";
+            itemList.appendChild(emptyListItem);
+        }
+
+        // Append the itemList after the categoryBanner inside the category container
+        categoryContainer.appendChild(itemList);
+
+        // Append the category container to the inventory list
+        achievementsList.appendChild(categoryContainer);
     });
 }
 
@@ -684,22 +750,102 @@ function updateAllStatsUI() {
     });
 }
 
+function giveDescription(selectedThing) {
+    var audio = new Audio('audio/Button.mp3');
+
+    if (selectedThing === 'apple') {
+        // Play the audio
+        audio.play();
+        alert(`This is just a basic ${selectedThing}, what kind of description did you expect?`);
+    } else if (selectedThing === 'banana') {
+        // Play the audio
+        audio.play();
+        alert(`This is just a basic ${selectedThing}, what kind of description did you expect?`);
+    } else if (selectedThing === 'strawberry') {
+        // Play the audio
+        audio.play();
+        alert(`This is just a basic ${selectedThing}, what kind of description did you expect?`);
+    } else if (selectedThing === 'foolishness') {
+        // Play the audio
+        audio.play();
+        alert(`This is just the basic ${selectedThing.charAt(0).toUpperCase() + selectedThing.slice(1)} achievement, what kind of description did you expect?`);
+    } else {
+        // Play the audio
+        audio.play();
+        alert(`How did you even select something not in the inventory or achievements?`);
+    }
+}
+
+function showFoodSelectionModal() {
+    const foodSelectionWindow = document.getElementById('foodSelectionModal');
+    const foodSelectionElement = document.getElementById('foodSelection');
+    foodSelectionElement.innerHTML = ''; // Clear previous options
+    player.inventory.food.forEach(food => {
+        const button = document.createElement('button');
+        button.className = 'eatFoodButton';
+        button.textContent = food.charAt(0).toUpperCase() + food.slice(1); // Capitalize the first letter
+        button.onclick = function() { eatSelectedFood(food); }; // Pass food as an argument
+        foodSelectionElement.appendChild(button);
+    });
+
+    // Check if the closeButtonDiv already exists
+    let closeButtonDiv = document.getElementById('closeButtonDiv');
+    if (!closeButtonDiv) {
+        // Create the div and button if they don't exist
+        closeButtonDiv = document.createElement('div');
+        closeButtonDiv.id = 'closeButtonDiv';
+        const closeButton = document.createElement('button');
+        closeButton.className = 'closeButton';
+        closeButton.innerText = 'Close Food Selection Menu';
+        closeButton.onclick = function() {
+            document.getElementById('foodSelectionModal').style.display = 'none';
+        };
+        closeButtonDiv.appendChild(closeButton);
+        // Append the closeButtonDiv to the modal
+        document.getElementById('foodSelectionModal').appendChild(closeButtonDiv);
+    }
+
+    foodSelectionWindow.appendChild(closeButtonDiv);
+    document.getElementById('foodSelectionModal').style.display = 'flex';
+    document.getElementById('foodSelectionModal').style.flexDirection = 'column';
+    document.getElementById('foodSelectionModal').style.width = '40%';
+    document.getElementById('foodSelectionModal').style.margin = '0 auto';
+    document.getElementById('inventorySection').style.marginTop = '40px';
+}
+
+function eatSelectedFood(foodItem) {
+    // Assuming removeFromInventory, updateStat, and other necessary functions are implemented
+    removeFromInventory('food', foodItem);
+
+    // Capitalize the first letter of foodItem for display purposes
+    const capitalizedFoodItem = foodItem.charAt(0).toUpperCase() + foodItem.slice(1);
+
+    if (foodItem === 'apple') {
+        updateStat('health', 10);
+        updateStat('food', 2);
+        alert(`The ${foodItem} has been eaten. Your health stat has gone up by 10 points and your food stat has gone up by 2 points!`);
+    } else if (foodItem === 'banana') {
+        updateStat('health', 5);
+        updateStat('food', 1);
+        alert(`The ${foodItem} has been eaten. Your health stat has gone up by 5 points and your food stat has gone up by 1 point!`);
+    } else {
+        alert(`The ${foodItem} has been eaten. It was tasty, but your stats remain unchanged!`);
+    }
+
+    document.getElementById('foodSelectionModal').style.display = 'none';
+    // Add the action to completed actions for achievements with the first letter capitalized
+    player.completedActions.multi.push('Eat ' + capitalizedFoodItem);
+    checkAchievements();
+}
+
+
 function performAction(action) {
     switch(action) {
         case 'Eat Food':
-            if(player.inventory.food.length > 0) { // Check if there's any food
-                var foodItem = player.inventory.food[0]; // Get the first food item
-                if(player.stats.food < 10) { // Assuming 10 is the max value for food stat
-                    removeFromInventory('food', foodItem); // Use the function to remove it
-                    updateStat('health', 10); // Example: Restore health
-                    updateStat('food', 2); // Increase food stat, assuming it decreases over time and needs replenishing
-                    alert(`The ${foodItem} has been eaten, your health stat has gone up by 10 points and your food stats has gone up by 2 points!`);
-                    // If the action is not a one-time action, log it for achievements or other tracking
-                    player.completedActions.multi.push(action);
-                    checkAchievements(); // Check and update achievements based on the latest action
-                } else {
-                    alert(`You are already full, Beaux. You can wait!`);
-                }
+            if(player.stats.food >= 10) { // Check if the player is full
+                alert(`You are already full, Beaux. You can wait for food! If you need health, use a potion!`);
+            } else if(player.inventory.food.length > 0) {
+                showFoodSelectionModal();
             } else {
                 alert('You do not have any food in your inventory.');
             }
@@ -716,10 +862,11 @@ function performAction(action) {
             alert(`You find a weird random drink on the ground, chug it, and feel energized! You've gained an energy stat!`);
             // Ensure UI updates
             updateAllStatsUI();
-            alert(`You thought that did not have consequences, Beaux? Minus 20 Health Points for drinking random fluids off the ground! On top of that, minus 4 Water Points because that was dehydrating!`);
+            alert(`You thought that did not have consequences, Beaux? Minus 20 Health Points for drinking random fluids off the ground! On top of that, minus 4 Water Points because that was dehydrating, minus 2 food points just cause!`);
             // Update the energy stat by a certain value (could be more logic here based on conditions)
             updateStat('health', -20); // Decrease health
             updateStat('water', -4); // Decrease water
+            updateStat('food', -2); // Decrease food
             checkAchievements(); // Check and update achievements based on the latest action
             break;
         case 'Spend All Your Money':
@@ -779,14 +926,14 @@ function logAchievement(category, achievement) {
     if (!player.achievements[category]) {
         // If not, create a new array for this category
         player.achievements[category] = [];
-        alert(`New achievements category: ${category}, has been created.`);
+        alert(`New achievements category: ${category.charAt(0).toUpperCase() + category.slice(1)}, has been created.`);
     }
 
     if (!player.achievements[category].includes(achievement)) {
         player.achievements[category].push(achievement);
-        alert(`Achievement unlocked: ${achievement}!`);
-        // Optionally, trigger a UI update to show the achievement, TODO
-        // updateAchievementsUI();
+        alert(`Achievement unlocked: ${achievement.charAt(0).toUpperCase() + achievement.slice(1)}!`);
+        //trigger a UI update to show the achievement
+        updateAchievementsUI();
     }
 }
 
@@ -795,7 +942,7 @@ function checkAchievements() {
     let timesMoneySpent = player.completedActions.multi.filter(action => action === 'Spend All Your Money').length;
     if (timesMoneySpent >= 2) {
         // Grant the achievement
-        logAchievement('secret', 'Foolishness')
+        logAchievement('secret', 'foolishness');
     }
     // Add more achievement checks as needed
 }
@@ -811,11 +958,19 @@ function restartGame() {
     };
     player.inventory = {
         food: ["apple", "banana", "strawberry"],
-        tools: ["hammer", "wrench", "screwdriver"]
+        tools: ["hammer", "wrench", "screwdriver"],
+        potions: ["red", "green", "blue"]
     };
     player.completedActions = {
         oneTime: [],
         multi: []
+    };
+    player.achievements = {
+        progress: [],
+        skill: [],
+        collection: [],
+        milestone: [],
+        special: []
     };
 
     // Correctly reset the gameTime to 6 AM on Day 1
@@ -827,6 +982,7 @@ function restartGame() {
     updateClockText();
     updateAllStatsUI();
     updateInventoryUI();
+    updateAchievementsUI();
     
 
     // Additional steps depending on game structure:
@@ -865,14 +1021,14 @@ function playSound(soundId, soundSrc) {
         // Play the new sound
         sound.play().catch(e => console.error("Error playing sound:", e));
     }
-};
+}
 
 // Stop a specific sound and reset its position
 function stopSound(soundId) {
     var sound = document.getElementById(soundId);
     sound.pause();
     sound.currentTime = 0;
-};
+}
 
 // Mute or unmute all sounds
 function muteToggle() {
@@ -881,7 +1037,7 @@ function muteToggle() {
     audioElements.forEach(audio => {
         audio.muted = isMuted;
     });
-};
+}
 
 function playBackgroundAudio() {
     var backgroundAudio = document.getElementById('backgroundAudio');
@@ -950,6 +1106,16 @@ function nextScene(sceneId) {
         inventorySection.style.display = 'flex'; // Show player stats on other scenes
         // Update stats UI when showing the section
         updateInventoryUI();
+    }
+
+    var achievementsSection = document.getElementById('achievementsSection');
+
+    if (sceneId === 'start') {
+        achievementsSection.style.display = 'none'; // Hide player stats on start scene
+    } else {
+        achievementsSection.style.display = 'flex'; // Show player stats on other scenes
+        // Update stats UI when showing the section
+        updateAchievementsUI();
     }
 
     var gameTimeSection = document.getElementById('gameTimeDisplay');

@@ -29,6 +29,42 @@
     --scene-image-border-color: #F8F8FF;
     /* ... other variables as needed */
 }
+#achievementsList {
+    background-color: var(--game-option-button-color);
+    border: 5px solid var(--game-option-button-border-color);
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 80%;
+    color: var(--game-option-button-text-color);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    align-content: center;
+    margin: 10px auto;
+}
+#achievementsSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 40px;
+}
+#achievementsTitle {
+    background-color: var(--game-option-title-background-color);
+    border: 5px solid var(--game-option-title-border-color);
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 5px;
+    width: 15%;
+    color: var(--game-option-title-color);
+    display: table;
+}
 #actionsSection {
     display: flex;
     flex-direction: column;
@@ -81,7 +117,69 @@ body {
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    margin-top: 20px;
     width: 100%;
+}
+#closeButtonDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 0 auto;
+}
+#eatFoodButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    border: 5px solid var(--button-border-color);
+    border-radius: 5px;
+    width: 40%;
+    cursor: pointer;
+}
+#eatFoodButton:hover {
+    background-color: var(--button-hover-color);
+    border: 5px solid var(--button-hover-border-color);
+    border-radius: 5px;
+}
+#foodSelection {
+    display: flex;
+    flex-direction: roe;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+#foodSelectionModal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--game-div-background-color);
+    border: 5px solid var(--game-div-border-color);
+    border-radius: 5px;
+    padding: 20px;
+    width: 80%;
+}
+#foodSelectionTitle {
+    background-color: var(--game-title-background-color);
+    border: 5px solid var(--game-title-border-color);
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 20px;
+    width: 40%;
+    color: var(--game-title-color);
+    display: table;
 }
 #gameDiv {
     display: flex;
@@ -116,6 +214,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    margin-top: 20px;
     width: 100%;
 }
 #gameTitle {
@@ -167,7 +266,7 @@ body {
     justify-content: center;
     align-items: center;
     align-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 #inventoryTitle {
     background-color: var(--game-option-title-background-color);
@@ -252,7 +351,7 @@ body {
 }
 #sceneAct {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 #sceneImage {
     text-align: center;
@@ -287,7 +386,8 @@ body {
 }
 #storyText {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
 .actionButton {
     display: flex;
@@ -353,6 +453,60 @@ body {
     background-color: var(--button-hover-color);
     border: 5px solid var(--button-hover-border-color);
     border-radius: 5px;
+}
+.closeButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 10px 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    border: 5px solid var(--button-border-color);
+    border-radius: 5px;
+    width: 80%;
+    cursor: pointer;
+}
+.closeButton:hover {
+    background-color: var(--button-hover-color);
+    border: 5px solid var(--button-hover-border-color);
+    border-radius: 5px;
+}
+.eatFoodButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 10px 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    border: 5px solid var(--button-border-color);
+    border-radius: 5px;
+    width: 40%;
+    cursor: pointer;
+}
+.eatFoodButton:hover {
+    background-color: var(--button-hover-color);
+    border: 5px solid var(--button-hover-border-color);
+    border-radius: 5px;
+}
+.eatFoodButtonDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 0 auto;
 }
 .gameOptionsButton {
     display: flex;
