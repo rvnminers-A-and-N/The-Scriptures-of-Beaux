@@ -227,8 +227,8 @@ var scenes = {
     'seekBurgers': {
         // Scene data for seeking food from Burger World...
         'act': 'Act 1 Part 2:\nThe Side Scriptures of Burger World',
-        'text': 'We are currently echeloning on this part of the story!',
-        'image': 'img/Echelon/Echelon.png',
+        'text': 'Beaux #1 and Beaux #2, on their mission for burgers, park Beaux #1s civic in the back corner of the parking lot.\n\n"Beaux look, Scriptures." Beaux #1 says to Beaux #2.\n\nBeaux #2 glances up from his Discord crypto feed in time to see a large drunken man, pissing on the side of Burger World, while holding a twisted tea.\n\n"Scriptures Beaux." Beaux #2 says to Beaux #1\n\n"GOOSDRABA" Shouts the drunken man.  ',
+        'image': 'img/Scenes/GoosDrabaPee.png',
         'audio': 'audio/Button.mp3',
         'colorScheme': {
             backgroundColor: '#FFC72C', // McDonald's Yellow for background
@@ -405,8 +405,8 @@ var scenes = {
     'insideBurgerWorld': {
         // Scene data for seeking food from Burger World...
         'act': 'Act 1 Part 3:\nThe Scriptures Continue Inside The Local Burger World',
-        'text': 'We are currently echeloning on this part of the story!',
-        'image': 'img/Echelon/Echelon.png',
+        'text': 'Inside Burger World Beaux #1 and Beaux #2 do stuff ',
+        'image': 'img/Scenes/BurgerWorld.png',
         'audio': 'audio/Button.mp3',
         'colorScheme': {
             backgroundColor: '#FFC72C', // McDonald's Yellow for background
@@ -514,7 +514,7 @@ function updateClockText() {
     let minute = gameTime.minute < 10 ? "0" + gameTime.minute : gameTime.minute;
 
     // Update the display
-    document.getElementById('gameTimeDisplay').innerHTML = `<h2>Time: ${hour}:${minute} ${period}, Day: ${gameTime.day}</h2>`;
+    document.getElementById('gameTimeDisplay').innerHTML = `<h2>Time: ${hour}:${minute} ${period}, Day ${gameTime.day}</h2>`;
 }
 
 function advanceTime(minutes) {
