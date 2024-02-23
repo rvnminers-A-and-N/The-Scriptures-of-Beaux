@@ -641,6 +641,13 @@ function updateInventoryUI() {
         // Create and append the category banner
         const categoryBanner = document.createElement('h2');
         categoryBanner.className = 'categoryBanner';
+        categoryBanner.addEventListener('mouseover', function() {
+            categoryBanner.style.cursor = 'pointer';
+        });
+        categoryBanner.addEventListener('mouseout', function() {
+            categoryBanner.style.cursor = 'default';
+        });
+        categoryBanner.onclick = function() { giveDescription(category); };
         categoryBanner.textContent = `${category.charAt(0).toUpperCase() + category.slice(1)}`; // Capitalize the first letter of category
         categoryContainer.appendChild(categoryBanner);
 
@@ -654,11 +661,11 @@ function updateInventoryUI() {
             listItem.textContent = `${item.charAt(0).toUpperCase() + item.slice(1)}`; // Capitalize the first letter of inventory item
             listItem.addEventListener('mouseover', function() {
                 listItem.style.cursor = 'pointer';
-            })
+            });
             listItem.addEventListener('mouseout', function() {
                 listItem.style.cursor = 'default';
-            })
-            listItem.onclick = function() { giveDescription(item); }
+            });
+            listItem.onclick = function() { giveDescription(item); };
             listItem.textContent = `${item.charAt(0).toUpperCase() + item.slice(1)}`;
             itemList.appendChild(listItem);
         });
@@ -691,6 +698,13 @@ function updateAchievementsUI() {
         // Create and append the category banner
         const categoryBanner = document.createElement('h2');
         categoryBanner.className = 'categoryBanner';
+        categoryBanner.addEventListener('mouseover', function() {
+            categoryBanner.style.cursor = 'pointer';
+        });
+        categoryBanner.addEventListener('mouseout', function() {
+            categoryBanner.style.cursor = 'default';
+        });
+        categoryBanner.onclick = function() { giveDescription(category); };
         categoryBanner.textContent = `${category.charAt(0).toUpperCase() + category.slice(1)}`; // Capitalize the first letter of category
         categoryContainer.appendChild(categoryBanner);
 
@@ -707,7 +721,7 @@ function updateAchievementsUI() {
             listItem.addEventListener('mouseout', function() {
                 listItem.style.cursor = 'default';
             })
-            listItem.onclick = function() { giveDescription(item); }
+            listItem.onclick = function() { giveDescription(item); };
             listItem.textContent = `${item.charAt(0).toUpperCase() + item.slice(1)}`; // Capitalize the first letter of inventory item
             itemList.appendChild(listItem);
         });
@@ -752,29 +766,54 @@ function updateAllStatsUI() {
 
 function giveDescription(selectedThing) {
     var audio = new Audio('audio/Button.mp3');
+    // Check if not muted before playing the audio
+    if (!isMuted) {
+        audio.play();
+    }
 
     if (selectedThing === 'apple') {
-        // Play the audio
-        audio.play();
         alert(`This is just a basic ${selectedThing}, what kind of description did you expect?`);
     } else if (selectedThing === 'banana') {
-        // Play the audio
-        audio.play();
         alert(`This is just a basic ${selectedThing}, what kind of description did you expect?`);
     } else if (selectedThing === 'strawberry') {
-        // Play the audio
-        audio.play();
         alert(`This is just a basic ${selectedThing}, what kind of description did you expect?`);
+    } else if (selectedThing === 'hammer') {
+        alert(`This is just a basic ${selectedThing}, what kind of description did you expect?`);
+    } else if (selectedThing === 'wrench') {
+        alert(`This is just a basic ${selectedThing}, what kind of description did you expect?`);
+    } else if (selectedThing === 'screwdriver') {
+        alert(`This is just a basic ${selectedThing}, what kind of description did you expect?`);
+    } else if (selectedThing === 'red') {
+        alert(`This is just a basic ${selectedThing} potion, what kind of description did you expect?`);
+    } else if (selectedThing === 'green') {
+        alert(`This is just a basic ${selectedThing} potion, what kind of description did you expect?`);
+    } else if (selectedThing === 'blue') {
+        alert(`This is just a basic ${selectedThing} potion, what kind of description did you expect?`);
     } else if (selectedThing === 'foolishness') {
-        // Play the audio
-        audio.play();
         alert(`This is just the basic ${selectedThing.charAt(0).toUpperCase() + selectedThing.slice(1)} achievement, what kind of description did you expect?`);
+    } else if (selectedThing === 'food') {
+        alert(`This is just a basic category for ${selectedThing} items, what kind of description did you expect?`);
+    } else if (selectedThing === 'tools') {
+        alert(`This is just a basic category for ${selectedThing}, what kind of description did you expect?`);
+    } else if (selectedThing === 'potions') {
+        alert(`This is just a basic category for ${selectedThing}, what kind of description did you expect?`);
+    } else if (selectedThing === 'progress') {
+        alert(`This is just a basic category for ${selectedThing} based achievements, what kind of description did you expect?`);
+    } else if (selectedThing === 'skill') {
+        alert(`This is just a basic category for ${selectedThing} based achievements, what kind of description did you expect?`);
+    } else if (selectedThing === 'collection') {
+        alert(`This is just a basic category for ${selectedThing} based achievements, what kind of description did you expect?`);
+    } else if (selectedThing === 'milestone') {
+        alert(`This is just a basic category for ${selectedThing} based achievements, what kind of description did you expect?`);
+    } else if (selectedThing === 'special') {
+        alert(`This is just a basic category ${selectedThing} based achievements, what kind of description did you expect?`);
+    } else if (selectedThing === 'secret') {
+        alert(`This is just a basic category for ${selectedThing} achievements, what kind of description did you expect?`);
     } else {
-        // Play the audio
-        audio.play();
         alert(`How did you even select something not in the inventory or achievements?`);
     }
 }
+
 
 function showFoodSelectionModal() {
     const foodSelectionWindow = document.getElementById('foodSelectionModal');
