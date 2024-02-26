@@ -329,13 +329,13 @@ body {
     padding-bottom: 10px;
     padding-left: 20px;
     padding-right: 20px;
-    width: 30%;
+    width: 20%;
     color: var(--button-text-color);
     display: table;
     align-items: center;
     justify-content: center;
     align-content: center;
-    margin: 10px 20px;
+    margin: 10px 10px;
 }
 #playerStatsTitle {
     background-color: var(--game-option-title-background-color);
@@ -393,7 +393,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px 20px;
+    margin: 10px 10px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 20px;
@@ -402,7 +402,7 @@ body {
     color: var(--button-text-color);
     border: 5px solid var(--button-border-color);
     border-radius: 5px;
-    width: 40%;
+    width: 30%;
     cursor: pointer;
 }
 .actionButton:hover {

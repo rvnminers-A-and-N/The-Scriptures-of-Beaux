@@ -227,7 +227,7 @@ var scenes = {
     'seekBurgers': {
         // Scene data for seeking food from Burger World...
         'act': 'Act 1 Part 2:\nThe Side Scriptures of Burger World',
-        'text': 'Beaux #1 and Beaux #2, on their mission for burgers, park Beaux #1s civic in the back corner of the parking lot.\n\n"Beaux look, Scriptures." Beaux #1 says to Beaux #2.\n\nBeaux #2 glances up from his Discord crypto feed in time to see a large drunken man, pissing on the side of Burger World, while holding a twisted tea.\n\n"Scriptures Beaux." Beaux #2 says to Beaux #1\n\n"GOOSDRABA" Shouts the drunken man.  ',
+        'text': 'Beaux #1 and Beaux #2, on their mission for burgers, park Beaux #1s civic on the sidewalk at Burger World.\n\n"Beaux look, Scriptures." Beaux #1 says to Beaux #2.\n\nBeaux #2 glances up from his Discord crypto feed in time to see a large drunken man, pissing on the side of Burger World, while holding a twisted tea.\n\n"Scriptures Beaux." Beaux #2 says to Beaux #1\n\n"GOOSDRABA" Shouts the drunken man.  ',
         'image': 'img/Scenes/GoosDrabaPee.png',
         'audio': 'audio/Button.mp3',
         'colorScheme': {
@@ -1008,7 +1008,7 @@ function checkAchievements() {
 
 function restartGame() {
     // Reset player stats and inventory to initial values
-    player.stats = {
+    /*player.stats = {
         health: 100,
         money: 50,
         food: 10,
@@ -1051,7 +1051,8 @@ function restartGame() {
     // Or, if you have a specific start scene or function, call that:
     // startGame(); or nextScene('start');
 
-    nextScene('start');
+    nextScene('start');*/
+    window.location.reload();
 }
 
 var isMuted = false;
