@@ -722,7 +722,7 @@ function updateAchievementsUI() {
                 listItem.style.cursor = 'default';
             })
             listItem.onclick = function() { giveDescription(item); };
-            listItem.textContent = `${item.charAt(0).toUpperCase() + item.slice(1)}`; // Capitalize the first letter of inventory item
+            listItem.textContent = `${item.charAt(0).toUpperCase() + item.slice(1)}!`; // Capitalize the first letter of inventory item
             itemList.appendChild(listItem);
         });
 
@@ -790,7 +790,9 @@ function giveDescription(selectedThing) {
     } else if (selectedThing === 'blue') {
         alert(`This is just a basic ${selectedThing} potion, what kind of description did you expect?`);
     } else if (selectedThing === 'foolishness') {
-        alert(`This is just the basic ${selectedThing.charAt(0).toUpperCase() + selectedThing.slice(1)} achievement, what kind of description did you expect?`);
+        alert(`This is just the basic ${selectedThing.charAt(0).toUpperCase() + selectedThing.slice(1)}! achievement, what kind of description did you expect?`);
+    } else if (selectedThing === 'that drank') {
+        alert(`This is just the basic ${selectedThing.charAt(0).toUpperCase() + selectedThing.slice(1)}! achievement, what kind of description did you expect?`);
     } else if (selectedThing === 'food') {
         alert(`This is just a basic category for ${selectedThing} items, what kind of description did you expect?`);
     } else if (selectedThing === 'tools') {
@@ -806,7 +808,7 @@ function giveDescription(selectedThing) {
     } else if (selectedThing === 'milestone') {
         alert(`This is just a basic category for ${selectedThing} based achievements, what kind of description did you expect?`);
     } else if (selectedThing === 'special') {
-        alert(`This is just a basic category ${selectedThing} based achievements, what kind of description did you expect?`);
+        alert(`This is just a basic category for ${selectedThing} based achievements, what kind of description did you expect?`);
     } else if (selectedThing === 'secret') {
         alert(`This is just a basic category for ${selectedThing} achievements, what kind of description did you expect?`);
     } else {
@@ -838,6 +840,11 @@ function showFoodSelectionModal() {
         closeButton.innerText = 'Close Food Selection Menu';
         closeButton.onclick = function() {
             document.getElementById('foodSelectionModal').style.display = 'none';
+            var audio = new Audio('audio/Button.mp3');
+            // Check if not muted before playing the audio
+            if (!isMuted) {
+                audio.play();
+            }
         };
         closeButtonDiv.appendChild(closeButton);
         // Append the closeButtonDiv to the modal
@@ -853,6 +860,12 @@ function showFoodSelectionModal() {
 }
 
 function eatSelectedFood(foodItem) {
+    var audio = new Audio('audio/Button.mp3');
+    // Check if not muted before playing the audio
+    if (!isMuted) {
+        audio.play();
+    }
+    
     // Assuming removeFromInventory, updateStat, and other necessary functions are implemented
     removeFromInventory('food', foodItem);
 
@@ -899,6 +912,7 @@ function performAction(action) {
             }
             // Show a message about the new stat
             alert(`You find a weird random drink on the ground, chug it, and feel energized! You've gained an energy stat!`);
+            player.completedActions.oneTime.push(action);
             // Ensure UI updates
             updateAllStatsUI();
             alert(`You thought that did not have consequences, Beaux? Minus 20 Health Points for drinking random fluids off the ground! On top of that, minus 4 Water Points because that was dehydrating, minus 2 food points just cause!`);
@@ -983,11 +997,17 @@ function checkAchievements() {
         // Grant the achievement
         logAchievement('secret', 'foolishness');
     }
+    
+    let drunkDrank = player.completedActions.oneTime.filter(action => action === 'Drink Weird Random Drink On Ground').length;
+    if (drunkDrank) {
+        // Grant the achievement
+        logAchievement('secret', 'that drank');
+    }
     // Add more achievement checks as needed
 }
 
 function restartGame() {
-    // Example: Reset player stats and inventory to initial values
+    // Reset player stats and inventory to initial values
     player.stats = {
         health: 100,
         money: 50,

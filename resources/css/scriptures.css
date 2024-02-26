@@ -151,7 +151,7 @@ body {
 }
 #foodSelection {
     display: flex;
-    flex-direction: roe;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     align-content: center;
